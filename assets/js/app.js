@@ -116,7 +116,7 @@
       <div class="flex justify-between items-center gap-2">
         <div class="flex flex-col gap-1.5 min-w-0">
           <div class="flex items-center gap-1.5 text-[11px] font-extrabold uppercase tracking-wider leading-normal">
-            <img src="${esc(K.logo || 'assets/img/logo.svg')}" alt="Logo ${esc(K.donViToChuc)}" width="20" height="20" class="w-5 h-5 object-contain shrink-0">
+            <img src="${esc(K.logo || 'assets/img/logo.png')}" alt="Logo ${esc(K.donViToChuc)}" width="24" height="24" class="w-6 h-6 rounded-full object-cover bg-white shrink-0">
             <span class="truncate">${esc(K.donViToChuc)}</span>
           </div>
           <h1 class="text-xs font-extrabold text-brand-gold uppercase tracking-wider leading-normal">${esc(K.tieuDe)}</h1>

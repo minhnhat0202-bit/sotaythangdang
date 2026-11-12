@@ -11,9 +11,10 @@ Chạy `node tools/kiem-tra.mjs` để xem còn bao nhiêu nhãn, ở dòng nào
 - [x] Giờ có mặt từng buổi, phân buổi thi theo SBD, 5 bàn phát số
 - [x] Quy định võ phục (1 đẳng cổ trắng đai đỏ; 2–3 đẳng võ phục WT), trang thiết bị, đeo SBD đùi trái
 - [x] Người ký: Phó Chủ tịch thường trực Đào Quốc Thắng
+- [x] Logo HNTF (cắt tròn từ ảnh JPG trong `2. Taekwondo/Logo/`, 512 px) → `assets/img/logo.png`
 
 ## Nhận diện
-- [ ] Logo chính thức của Liên đoàn Taekwondo thành phố Hà Nội (PNG nền trong suốt hoặc SVG) → `assets/img/`
+- [ ] Logo bản vector (SVG/AI) nếu Liên đoàn có, để in và hiện nét hơn ảnh JPG hiện tại
 - [ ] Màu nhận diện (nếu có quy định) → đổi bảng màu `navy` / `brand` trong `index.html`
 - [ ] Ảnh đại diện khi chia sẻ link (1200×630) → thêm thẻ `og:image` trong `index.html`
 

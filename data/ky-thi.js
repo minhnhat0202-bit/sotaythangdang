@@ -19,7 +19,7 @@ window.KY_THI = {
   dot: "Kỳ thi thăng 1, 2, 3 Đẳng Taekwondo Quốc gia lần thứ II năm 2026 tại TP. Hà Nội",
   ngayThi: "Chủ nhật, 15/11/2026",
   ngayPhu: "Thứ Bảy, 14/11/2026 — tập huấn & phát SBD",
-  logo: "assets/img/logo.svg",
+  logo: "assets/img/logo.png",
   doiTuong: "Thí sinh thi thăng 1, 2, 3 đẳng đã đăng ký qua các câu lạc bộ, điểm tập, đơn vị thuộc Liên đoàn. Thí sinh thi 1 đẳng có số báo danh từ 1001 đến 1438.",
   ghiChuChung: "Thí sinh có mặt đúng buổi thi theo số báo danh (xem tab Số báo danh). Thắc mắc về số báo danh, lịch thi: liên hệ bộ phận Thư ký hoặc Văn phòng Liên đoàn.",
 

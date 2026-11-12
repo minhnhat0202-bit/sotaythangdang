@@ -13,7 +13,7 @@ index.html              Khung trang (chỉ có vỏ, nội dung do app.js dựng
 assets/
   css/style.css         Kiểu riêng ngoài Tailwind (tab, nhãn vàng, in ấn)
   js/app.js             Dựng giao diện từ dữ liệu, chuyển tab
-  img/logo.svg          Logo TẠM — thay bằng logo chính thức của Liên đoàn
+  img/logo.png          Logo HNTF, cắt tròn 512 px, nền trong suốt (gốc JPG ở `2. Taekwondo/Logo/`)
 data/
   ky-thi.js             Kỳ thi hiện tại: ngày, địa điểm, lịch, hotline, hồ sơ, lệ phí, liên hệ
   noi-dung-thi.js       Quy định thăng đẳng: điều kiện, bài quyền, phần thi của từng đẳng
@@ -42,7 +42,7 @@ Mở trên điện thoại thì thêm `#lich-trinh`, `#noi-dung`, `#ho-so`, `#li
 |---|---|
 | Ngày thi, địa điểm, hotline, lịch ngày thi, dặn dò, hồ sơ, lệ phí, liên hệ | `data/ky-thi.js` |
 | Điều kiện dự thi, bài quyền, các phần thi của từng đẳng | `data/noi-dung-thi.js` |
-| Logo | thay `assets/img/logo.svg` (hoặc đổi trường `logo` trong `data/ky-thi.js`) |
+| Logo | thay `assets/img/logo.png` (ảnh vuông, nền trong suốt; hoặc đổi trường `logo` trong `data/ky-thi.js`) |
 | Bố cục, màu, tab mới | `assets/js/app.js`, `assets/css/style.css`, `index.html` |
 
 Chỗ nào chưa có thông tin chính thức thì ghi `[CẦN CẬP NHẬT]` hoặc `[CẦN XÁC NHẬN]` ngay trong

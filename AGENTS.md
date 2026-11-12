@@ -46,8 +46,10 @@ Chỉ sửa `data/noi-dung-thi.js` (nguồn: QĐ 152/2025/QĐ-VTF, căn cứ Kuk
 Bỏ một đẳng: xoá cả phần tử. Thêm đẳng: chép một phần tử có sẵn, đổi `so` và nội dung.
 
 ## Thay logo
-Đặt tệp logo chính thức vào `assets/img/` (PNG nền trong suốt, ≥ 256 px hoặc SVG), đổi trường
-`logo` trong `data/ky-thi.js` và thẻ `<link rel="icon">` trong `index.html` cho khớp. Việc của Claude.
+Logo hiện tại: `assets/img/logo.png` (256×256, cắt tròn, nền trong suốt, ~21 KB; gốc là ảnh JPG HNTF trong
+`2. Taekwondo/Logo/`, cắt bằng PIL: tìm khung bao phần không trắng → cắt vuông → mặt nạ tròn → quantize). Có logo mới: làm ảnh vuông nền trong suốt ≥ 256 px, ghi đè tệp này hoặc đổi trường
+`logo` trong `data/ky-thi.js` và hai thẻ `<link rel="icon">`, `apple-touch-icon` trong `index.html`.
+Đầu trang hiển thị logo trong khung tròn nền trắng (`rounded-full bg-white`). Việc của Claude.
 
 ## Quy ước commit & push
 Tiếng Việt, một dòng nói rõ đổi gì, ví dụ: `Cập nhật ngày thi và địa điểm đợt 1/2027`.

@@ -1,6 +1,10 @@
 /* =============================================================
    THÔNG TIN KỲ THI HIỆN TẠI — sửa tệp này mỗi khi có kỳ thi mới.
 
+   Nguồn: Thông báo của Liên đoàn Taekwondo thành phố Hà Nội ngày 12/11/2026
+   "V/v tổ chức lớp tập huấn và Kỳ thi thăng 1, 2, 3 Đẳng Taekwondo Quốc gia
+   lần thứ II năm 2026 tại TP. Hà Nội" (docs/thong-bao-ky-thi-lan-2-2026.pdf).
+
    - Chữ trong dấu ngoặc kép là nội dung hiện nguyên văn trên trang.
    - Nhãn [CẦN CẬP NHẬT] / [CẦN XÁC NHẬN] sẽ hiện VÀNG trên trang;
      chạy `node tools/kiem-tra.mjs --phat-hanh` để chắc không còn nhãn
@@ -10,158 +14,206 @@
 window.KY_THI = {
   capNhat: "12/11/2026",
 
-  donViToChuc: "Liên đoàn Taekwondo Hà Nội",
-  tieuDe: "Kỳ thi thăng đẳng Taekwondo",
-  dot: "[CẦN CẬP NHẬT] Đợt … năm 2026",
-  ngayThi: "[CẦN CẬP NHẬT] Chủ nhật, …/…/2026",
+  donViToChuc: "Liên đoàn Taekwondo TP. Hà Nội",
+  tieuDe: "Kỳ thi thăng 1, 2, 3 đẳng Quốc gia lần II/2026",
+  dot: "Kỳ thi thăng 1, 2, 3 Đẳng Taekwondo Quốc gia lần thứ II năm 2026 tại TP. Hà Nội",
+  ngayThi: "Chủ nhật, 15/11/2026",
+  ngayPhu: "Thứ Bảy, 14/11/2026 — tập huấn & phát SBD",
   logo: "assets/img/logo.svg",
-  doiTuong: "Võ sinh cấp 1 (đai đỏ 3 vạch đen) đủ điều kiện thi 1 đẳng và võ sinh đang giữ đẳng đủ thời gian theo quy định, thuộc các câu lạc bộ thành viên của Liên đoàn.",
-  ghiChuChung: "",
+  doiTuong: "Thí sinh thi thăng 1, 2, 3 đẳng đã đăng ký qua các câu lạc bộ, điểm tập, đơn vị thuộc Liên đoàn. Thí sinh thi 1 đẳng có số báo danh từ 1001 đến 1438.",
+  ghiChuChung: "Thí sinh có mặt đúng buổi thi theo số báo danh (xem tab Số báo danh). Thắc mắc về số báo danh, lịch thi: liên hệ bộ phận Thư ký hoặc Văn phòng Liên đoàn.",
 
-  /* ---- Địa điểm & di chuyển ---- */
-  diaDiem: {
-    ten: "[CẦN CẬP NHẬT] Nhà thi đấu …",
-    diaChi: "[CẦN CẬP NHẬT] Số …, phường …, Hà Nội",
-    ghiChu: "[CẦN CẬP NHẬT] Cổng vào, chỗ gửi xe",
-    mapUrl: "",      // link Google Maps → hiện nút "Chỉ đường"; để trống thì ẩn
-    mapEmbed: ""     // link nhúng Google Maps (Share → Embed a map → chỉ lấy phần src="…"); để trống thì ẩn
-  },
-  diChuyen: [
-    { icon: "car", phuongTien: "Xe máy / ô tô", moTa: "[CẦN CẬP NHẬT] Gửi xe tại …, phí …" },
-    { icon: "bus", phuongTien: "Xe buýt", moTa: "[CẦN CẬP NHẬT] Tuyến …, xuống điểm …" }
+  /* ---- Văn bản gốc của Ban tổ chức (link hiện ở tab Tổng quan) ---- */
+  vanBan: [
+    { ten: "Thông báo tổ chức lớp tập huấn và Kỳ thi thăng 1, 2, 3 Đẳng lần thứ II năm 2026 (PDF, 12/11/2026)", url: "docs/thong-bao-ky-thi-lan-2-2026.pdf" }
   ],
+
+  /* ---- Địa điểm: mỗi phần tử là một thẻ; phần tử đầu là địa điểm chính ----
+     mapUrl: link Google Maps → nút "Chỉ đường"; mapEmbed: link nhúng (…&output=embed); để "" thì ẩn */
+  diaDiem: [
+    {
+      nhan: "Địa điểm thi · Chủ nhật 15/11",
+      ten: "Nhà thi đấu TDTT Trung tâm Văn hóa – Thông tin và Thể thao phường Tương Mai",
+      diaChi: "Số 104 Nguyễn An Ninh, phường Tương Mai, TP. Hà Nội",
+      ghiChu: "[CẦN CẬP NHẬT] Cổng vào và chỗ gửi xe cho phụ huynh.",
+      mapUrl: "https://www.google.com/maps/search/?api=1&query=104+Nguyễn+An+Ninh,+Tương+Mai,+Hà+Nội",
+      mapEmbed: "https://maps.google.com/maps?q=104+Nguyễn+An+Ninh,+Tương+Mai,+Hà+Nội&z=16&output=embed",
+      diChuyen: []
+    },
+    {
+      nhan: "Tập huấn & phát SBD · Thứ Bảy 14/11",
+      ten: "Phòng tập Taekwondo Hà Nội",
+      diaChi: "Đường Lê Đức Thọ, Mỹ Đình, TP. Hà Nội",
+      ghiChu: "[CẦN CẬP NHẬT] Số nhà cụ thể và chỗ gửi xe.",
+      mapUrl: "https://www.google.com/maps/search/?api=1&query=Phòng+tập+Taekwondo+Hà+Nội,+Lê+Đức+Thọ,+Mỹ+Đình",
+      mapEmbed: "",
+      diChuyen: []
+    }
+  ],
+  diChuyen: [],
 
   /* ---- Hotline (nút đỏ ở đầu trang) ---- */
   hotline: [
-    { ten: "Văn phòng Liên đoàn", sdt: "[CẦN CẬP NHẬT]" },
-    { ten: "Thư ký kỳ thi", sdt: "[CẦN CẬP NHẬT]" }
+    { ten: "Bộ phận Thư ký kỳ thi", sdt: "[CẦN CẬP NHẬT]" },
+    { ten: "Văn phòng Liên đoàn", sdt: "[CẦN CẬP NHẬT]" }
   ],
 
   /* ---- Tra cứu số báo danh: có link (Google Sheet, form…) thì điền, nút tự hiện ---- */
   traCuu: { nhan: "Tra cứu SBD", url: "" },
 
-  /* ---- Ban tổ chức & hội đồng khảo thí ---- */
+  /* ---- Ban tổ chức ---- */
   banToChuc: [
-    { vaiTro: "Trưởng ban tổ chức", ten: "[CẦN CẬP NHẬT]" },
-    { vaiTro: "Chủ tịch hội đồng khảo thí", ten: "[CẦN CẬP NHẬT]" },
-    { vaiTro: "Thư ký kỳ thi", ten: "[CẦN CẬP NHẬT]" }
+    { vaiTro: "Đơn vị tổ chức", ten: "Liên đoàn Taekwondo thành phố Hà Nội" },
+    { vaiTro: "Ký thông báo", ten: "Ông Đào Quốc Thắng — Phó Chủ tịch thường trực" },
+    { vaiTro: "Ban Giảng huấn, Ban Trọng tài", ten: "Tập huấn, kiểm tra võ phục, điều hành các nội dung thi" },
+    { vaiTro: "Bộ phận Thư ký", ten: "Phát số báo danh, xử lý mất SBD, điều chỉnh thông tin" }
   ],
 
-  /* ---- Khung thời gian ngày thi ----
+  /* ---- Khung thời gian ----
+     ngay: các thẻ cùng `ngay` được gom thành một ngày (địa điểm lấy ở thẻ đầu của ngày đó)
      mau: emerald | blue | amber | rose | violet | cyan | orange (bỏ trống thì tự xoay vòng) */
-  ghiChuLichTrinh: "[CẦN XÁC NHẬN] Khung giờ dưới đây là dự kiến theo kỳ thi thông thường, chờ lịch chính thức của Ban tổ chức.",
+  ghiChuLichTrinh: "",
   lichTrinh: [
     {
-      gio: "07:00–07:45", ten: "Check-in & tập kết", mau: "emerald",
+      ngay: "Thứ Bảy, 14/11/2026 — Tập huấn & phát số báo danh",
+      diaDiem: "Phòng tập Taekwondo Hà Nội, đường Lê Đức Thọ, Mỹ Đình",
+      gio: "08:00", ten: "Tập huấn buổi sáng", mau: "emerald",
+      moTa: "Thí sinh có mặt lúc 08h00. [CẦN XÁC NHẬN] Nhóm nào tập huấn buổi sáng, nhóm nào buổi chiều.",
       buoc: [
-        { ten: "Điểm danh, nhận số báo danh", moTa: "Thí sinh xuất trình CCCD/giấy khai sinh, đối chiếu hồ sơ với thư ký kỳ thi." },
-        { ten: "Kiểm tra trang phục", moTa: "Võ phục đúng quy định, đai đúng cấp/đẳng hiện tại, móng tay cắt ngắn, không đeo trang sức." },
-        { ten: "Khởi động theo khu vực", moTa: "Thí sinh tập kết theo nhóm đẳng dự thi dưới sự hướng dẫn của huấn luyện viên; phụ huynh và người thân lên khán đài." }
+        { ten: "Điểm danh, ổn định tổ chức", moTa: "Huấn luyện viên và võ sinh có mặt đúng giờ." },
+        { ten: "Triển khai nội dung chuyên môn", moTa: "Theo chương trình của Ban Giảng huấn. Ban Giảng huấn kiểm tra võ phục ngay trong buổi tập huấn." }
       ]
     },
     {
-      gio: "07:45–08:15", ten: "Khai mạc", mau: "blue",
+      ngay: "Thứ Bảy, 14/11/2026 — Tập huấn & phát số báo danh",
+      gio: "Từ 11:00", ten: "Phát số báo danh", mau: "amber",
+      moTa: "Ban Tổ chức bố trí 05 bàn phát số. Thí sinh kiểm tra thông tin, nhận đúng SBD theo danh sách đăng ký và làm theo hướng dẫn của bộ phận Thư ký.",
       buoc: [
-        { ten: "Chào cờ, giới thiệu hội đồng khảo thí", moTa: "" },
-        { ten: "Phổ biến quy chế và trình tự thi", moTa: "Thí sinh nghe kỹ thứ tự gọi tên, khu vực sàn thi của nhóm mình." }
+        { ten: "Bàn 1–4: thí sinh thi 1 đẳng", moTa: "Bàn 1: SBD 1001–1109 · Bàn 2: SBD 1110–1220 · Bàn 3: SBD 1221–1320 · Bàn 4: SBD 1321–1438." },
+        { ten: "Bàn 5: thí sinh thi 2 đẳng và 3 đẳng", moTa: "" }
       ]
     },
     {
-      gio: "08:15–11:30", ten: "Thi thực hành", mau: "amber",
-      moTa: "Thi theo nhóm đẳng, mỗi nhóm lần lượt qua các phần thi. Thứ tự có thể thay đổi theo điều hành của hội đồng.",
+      ngay: "Thứ Bảy, 14/11/2026 — Tập huấn & phát số báo danh",
+      gio: "13:00", ten: "Tập huấn buổi chiều", mau: "blue",
+      moTa: "Thí sinh có mặt lúc 13h00.",
       buoc: [
-        { ten: "Kỹ thuật căn bản", moTa: "Thực hiện theo hiệu lệnh của giám khảo." },
-        { ten: "Bài quyền (Poomsae)", moTa: "Bài bắt buộc và bài tự chọn do hội đồng chỉ định tại chỗ." },
-        { ten: "Đối luyện & tự vệ", moTa: "Thực hiện với bạn tập cùng nhóm." },
-        { ten: "Thi đấu (Kyorugi)", moTa: "Mang đủ bảo hộ trước khi được gọi tên." },
-        { ten: "Công phá (Kyokpa)", moTa: "[CẦN XÁC NHẬN] Vật liệu công phá do Ban tổ chức chuẩn bị hay thí sinh tự mang." }
+        { ten: "Điểm danh, ổn định tổ chức", moTa: "" },
+        { ten: "Triển khai nội dung chuyên môn", moTa: "Theo chương trình của Ban Giảng huấn." }
       ]
     },
     {
-      gio: "11:30–12:00", ten: "Lý thuyết & bế mạc", mau: "violet",
+      ngay: "Chủ nhật, 15/11/2026 — Kỳ thi chính thức",
+      diaDiem: "Nhà thi đấu TDTT phường Tương Mai, số 104 Nguyễn An Ninh",
+      gio: "07:00", ten: "Buổi sáng — có mặt, điểm danh", mau: "rose",
+      moTa: "Đối tượng: thí sinh thi 2 đẳng, thí sinh thi 3 đẳng và thí sinh thi 1 đẳng có SBD từ 1001 đến 1088.",
       buoc: [
-        { ten: "Thi lý thuyết", moTa: "[CẦN XÁC NHẬN] Hình thức vấn đáp hay bài viết, áp dụng cho đẳng nào." },
-        { ten: "Thông báo thời gian công bố kết quả", moTa: "Thí sinh và huấn luyện viên theo dõi tại kênh thông tin của Liên đoàn (xem mục Liên hệ)." }
+        { ten: "Điểm danh, kiểm tra võ phục và bảo hộ", moTa: "Ban Trọng tài kiểm tra trước khi vào nội dung thi; chưa đạt phải khắc phục ngay." },
+        { ten: "Ổn định tổ chức, vào khu vực thi theo nhóm", moTa: "Đeo số báo danh bên đùi trái trong suốt quá trình thi." },
+        { ten: "Thi các nội dung", moTa: "Theo điều hành của Ban Giảng huấn và Ban Trọng tài. [CẦN XÁC NHẬN] Thứ tự và khung giờ từng nội dung thi." }
+      ]
+    },
+    {
+      ngay: "Chủ nhật, 15/11/2026 — Kỳ thi chính thức",
+      gio: "12:30", ten: "Buổi chiều — có mặt, điểm danh", mau: "violet",
+      moTa: "Đối tượng: các thí sinh thi 1 đẳng còn lại, SBD từ 1089 đến 1438.",
+      buoc: [
+        { ten: "Điểm danh, kiểm tra võ phục và bảo hộ", moTa: "" },
+        { ten: "Ổn định tổ chức, vào khu vực thi theo nhóm", moTa: "Đeo số báo danh bên đùi trái trong suốt quá trình thi." },
+        { ten: "Thi các nội dung", moTa: "Theo điều hành của Ban Giảng huấn và Ban Trọng tài." }
       ]
     }
   ],
 
-  /* ---- Dặn dò trước kỳ thi ---- */
+  /* ---- Dặn dò trước kỳ thi (theo Thông báo) ---- */
   danDo: [
     {
-      icon: "shirt", tieuDe: "Trang phục & dụng cụ",
+      icon: "ticket", tieuDe: "Số báo danh",
       items: [
-        "Võ phục Taekwondo sạch, phẳng, đúng quy định: thí sinh thi 1 đẳng mặc võ phục cổ trắng (hoặc cổ đỏ-đen với thí sinh thi Poom); thí sinh đã có đẳng mặc võ phục cổ đen.",
-        "Đai đúng cấp/đẳng hiện tại. Không thắt đai cao hơn đẳng mình đang giữ.",
-        "Bảo hộ thi đấu đầy đủ: mũ, giáp, bảo hộ răng, cẳng tay, ống chân, bàn chân, hạ bộ. [CẦN XÁC NHẬN] Ban tổ chức có cho mượn bảo hộ hay không.",
-        "Mang theo CCCD/giấy khai sinh (bản gốc hoặc bản sao công chứng) để đối chiếu khi điểm danh."
+        "Nhận số báo danh từ 11h00 Thứ Bảy 14/11 tại Phòng tập Taekwondo Hà Nội, đúng bàn theo nhóm (xem tab Số báo danh).",
+        "Chủ động kiểm tra thông tin, nhận đúng số báo danh theo danh sách đăng ký và thực hiện theo hướng dẫn của bộ phận Thư ký.",
+        "Đeo số báo danh ở vị trí bên đùi TRÁI trong suốt quá trình tham gia các nội dung thi.",
+        "Làm mất hoặc thất lạc số báo danh: báo ngay bộ phận Thư ký để được kiểm tra, xác nhận và hướng dẫn xử lý."
+      ]
+    },
+    {
+      icon: "shirt", tieuDe: "Võ phục",
+      items: [
+        "Thi 1 đẳng: võ phục Taekwondo truyền thống đúng quy định, cổ áo màu trắng, thắt đai màu đỏ.",
+        "Thi 2 đẳng và 3 đẳng: võ phục theo quy định của Liên đoàn Taekwondo Thế giới (WT), thuộc các nhãn hiệu được WT công nhận năm 2026.",
+        "Võ phục đúng quy cách, sạch sẽ, chỉnh tề và phù hợp với cấp đẳng đăng ký dự thi.",
+        "Không dùng võ phục có chữ tiếng Hàn Quốc, hình ảnh, ký hiệu hoặc hình vẽ không phù hợp trên áo và quần.",
+        "Logo, phù hiệu phải phù hợp quy định của Liên đoàn Taekwondo Việt Nam và Liên đoàn Taekwondo thành phố Hà Nội.",
+        "Ban Giảng huấn và Ban Trọng tài kiểm tra võ phục trong tập huấn và trước khi thi; chưa đạt phải khắc phục trước khi dự thi."
+      ]
+    },
+    {
+      icon: "shield", tieuDe: "Trang thiết bị tự chuẩn bị",
+      items: [
+        "Bảo hộ chân, bảo hộ tay, găng tay và võ phục (Kukki) theo quy định.",
+        "Kiểm tra kỹ trang thiết bị trước khi đến địa điểm thi: đầy đủ, đúng quy cách, dùng được trong suốt quá trình thi."
       ]
     },
     {
       icon: "timer", tieuDe: "Thời gian & kỷ luật",
       items: [
-        "Có mặt trước giờ check-in ít nhất 15 phút. Thí sinh đến muộn sau khi nhóm đã thi xong phần quyền sẽ không được thi bù. [CẦN XÁC NHẬN]",
-        "Không rời khu vực tập kết khi chưa thi xong; nghe gọi tên theo số báo danh.",
-        "Chào hội đồng khi vào và ra sàn thi; tuân thủ hiệu lệnh của giám khảo và trọng tài.",
-        "Không dùng điện thoại trong khu vực sàn thi. Phụ huynh, người thân ở khán đài, không xuống sàn."
-      ]
-    },
-    {
-      icon: 'heart-pulse', tieuDe: "Sức khỏe & an toàn",
-      items: [
-        "Ăn sáng nhẹ, uống đủ nước; mang theo nước uống riêng.",
-        "Thí sinh đang chấn thương hoặc có bệnh lý cần báo huấn luyện viên và thư ký kỳ thi trước khi thi phần đối kháng.",
-        "Có tổ y tế trực tại địa điểm thi. [CẦN XÁC NHẬN]"
+        "Có mặt đúng giờ, đúng địa điểm theo lịch tập huấn và buổi thi đã phân theo số báo danh; điểm danh và ổn định tổ chức trước khi vào nội dung thi.",
+        "Tham gia đầy đủ các nội dung tập huấn; chấp hành hướng dẫn của Ban Giảng huấn, Ban Trọng tài và Ban Tổ chức.",
+        "Huấn luyện viên quản lý võ sinh, kiểm tra võ phục, trang thiết bị và nhắc thí sinh thực hiện đúng lịch của Ban Tổ chức.",
+        "Khó khăn, vướng mắc hoặc cần điều chỉnh thông tin về số báo danh, lịch thi: liên hệ bộ phận Thư ký hoặc Văn phòng Liên đoàn."
       ]
     }
   ],
 
-  /* ---- Hồ sơ & lệ phí ---- */
-  hoSo: {
-    hanNop: "[CẦN CẬP NHẬT] …/…/2026",
-    noiNop: "[CẦN CẬP NHẬT] Qua câu lạc bộ, tổng hợp gửi Văn phòng Liên đoàn",
-    hinhThuc: "[CẦN XÁC NHẬN] Bản giấy và/hoặc bản mềm theo mẫu của Liên đoàn",
-    giayTo: [
-      "Đơn đăng ký dự thi theo mẫu của Liên đoàn (có xác nhận của câu lạc bộ, huấn luyện viên phụ trách).",
-      "02 ảnh 3×4 nền trắng, chụp trong 6 tháng gần nhất, mặc võ phục. [CẦN XÁC NHẬN số lượng, nền ảnh]",
-      "Bản sao CCCD (từ 14 tuổi) hoặc giấy khai sinh (dưới 14 tuổi).",
-      "Bản sao chứng chỉ đẳng hiện tại (Kukkiwon hoặc Liên đoàn Taekwondo Việt Nam) đối với thí sinh thi từ 2 đẳng trở lên.",
-      "Giấy chứng nhận cấp 1 (đai đỏ 3 vạch đen) đối với thí sinh thi 1 đẳng. [CẦN XÁC NHẬN]",
-      "Danh sách tổng hợp của câu lạc bộ theo mẫu (file Excel). [CẦN XÁC NHẬN]"
+  /* ---- Tab thứ 4: đăng ký đã khép nên tab này hiện Số báo danh; kỳ sau có hồ sơ thì đổi nhãn lại ---- */
+  nhanTab: { hoSo: { nhan: "Số báo danh", icon: "ticket" } },
+  soBaoDanh: {
+    tieuDe: "Phát số báo danh",
+    thoiGian: "Từ 11h00, Thứ Bảy 14/11/2026",
+    diaDiem: "Phòng tập Taekwondo Hà Nội — đường Lê Đức Thọ, Mỹ Đình",
+    ban: [
+      { ten: "Bàn số 1", doiTuong: "Thí sinh thi 1 đẳng — SBD 1001 đến 1109" },
+      { ten: "Bàn số 2", doiTuong: "Thí sinh thi 1 đẳng — SBD 1110 đến 1220" },
+      { ten: "Bàn số 3", doiTuong: "Thí sinh thi 1 đẳng — SBD 1221 đến 1320" },
+      { ten: "Bàn số 4", doiTuong: "Thí sinh thi 1 đẳng — SBD 1321 đến 1438" },
+      { ten: "Bàn số 5", doiTuong: "Thí sinh thi 2 đẳng và 3 đẳng" }
     ],
-    ghiChuHoSo: "Hồ sơ không đầy đủ hoặc nộp sau hạn sẽ không được xếp lịch thi.",
-    lePhi: [
-      { muc: "Lệ phí thi 1 đẳng (Poom/Dan)", phi: "[CẦN CẬP NHẬT]" },
-      { muc: "Lệ phí thi 2 đẳng", phi: "[CẦN CẬP NHẬT]" },
-      { muc: "Lệ phí thi 3 đẳng", phi: "[CẦN CẬP NHẬT]" },
-      { muc: "Phí chứng chỉ Kukkiwon (nếu thu riêng)", phi: "[CẦN CẬP NHẬT]" }
+    quyDinh: [
+      "Đeo số báo danh bên đùi trái trong suốt quá trình thi.",
+      "Mất hoặc thất lạc số báo danh: báo ngay bộ phận Thư ký."
     ],
-    ghiChuLePhi: "[CẦN XÁC NHẬN] Lệ phí nộp cùng hồ sơ hay nộp tại ngày thi; có hoàn lại khi vắng thi hay không.",
-    cachNop: [
-      "Thí sinh nộp hồ sơ và lệ phí cho huấn luyện viên phụ trách tại câu lạc bộ.",
-      "Câu lạc bộ tổng hợp danh sách, kiểm tra điều kiện dự thi và gửi về Văn phòng Liên đoàn trước hạn.",
-      "Liên đoàn rà soát hồ sơ, công bố danh sách thí sinh đủ điều kiện và số báo danh trước ngày thi. [CẦN XÁC NHẬN] thời điểm công bố."
+    tieuDeBuoiThi: "Buổi thi theo số báo danh · Chủ nhật 15/11",
+    buoiThi: [
+      { ten: "Sáng · có mặt 07h00", doiTuong: "Thí sinh thi 2 đẳng, 3 đẳng và thí sinh thi 1 đẳng SBD 1001–1088" },
+      { ten: "Chiều · có mặt 12h30", doiTuong: "Thí sinh thi 1 đẳng còn lại, SBD 1089–1438" }
     ]
+  },
+
+  /* ---- Hồ sơ & lệ phí: kỳ này đã qua giai đoạn đăng ký nên để trống (tự ẩn) ---- */
+  hoSo: {
+    hanNop: "", noiNop: "", hinhThuc: "",
+    giayTo: [], ghiChuHoSo: "",
+    lePhi: [], ghiChuLePhi: "",
+    cachNop: []
   },
 
   /* ---- Kết quả & chứng chỉ ---- */
   ketQua: {
     tieuDe: "Kết quả & chứng chỉ",
     items: [
-      "Kết quả công bố trên kênh thông tin của Liên đoàn trong vòng … ngày sau kỳ thi. [CẦN CẬP NHẬT]",
-      "Thí sinh đạt được cấp chứng chỉ đẳng theo quy định; chứng chỉ Kukkiwon thường nhận sau 2–3 tháng. [CẦN XÁC NHẬN]",
-      "Thí sinh không đạt được đăng ký thi lại ở kỳ thi gần nhất theo hướng dẫn của Liên đoàn."
+      "[CẦN CẬP NHẬT] Thời gian và kênh công bố kết quả.",
+      "Thí sinh đạt được cấp chứng chỉ đẳng theo quy định; thời gian nhận chứng chỉ theo thông báo của Liên đoàn. [CẦN XÁC NHẬN]"
     ]
   },
 
   /* ---- Liên hệ ---- */
   lienHe: {
-    tieuDe: "Văn phòng Liên đoàn Taekwondo Hà Nội",
+    tieuDe: "Văn phòng Liên đoàn Taekwondo thành phố Hà Nội",
     diaChi: "[CẦN CẬP NHẬT]",
     dienThoai: "[CẦN CẬP NHẬT]",
     email: "[CẦN CẬP NHẬT]",
     facebook: "[CẦN CẬP NHẬT] link fanpage",
     website: "",
-    gioLamViec: "[CẦN CẬP NHẬT] Thứ 2 – Thứ 6, 8:00–17:00"
+    gioLamViec: ""
   }
 };

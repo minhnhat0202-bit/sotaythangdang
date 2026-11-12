@@ -21,6 +21,7 @@ tools/
   kiem-tra.mjs          Kiểm tra trước khi commit / phát hành
 docs/
   CAN-BO-SUNG.md        Danh sách thông tin còn thiếu, cần Liên đoàn cung cấp
+  thong-bao-*.pdf       Văn bản gốc của Ban tổ chức (link từ tab Tổng quan)
 AGENTS.md               Công thức cho agent (omp, Claude) khi cập nhật nội dung
 ```
 

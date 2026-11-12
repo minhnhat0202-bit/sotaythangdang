@@ -25,7 +25,7 @@ window.NOI_DUNG_THI = {
     canCu: "Căn cứ Quy định thi thăng cấp, đẳng hiện hành của Kukkiwon"
   },
 
-  luuY: "[CẦN XÁC NHẬN] Nội dung dưới đây dựng theo quy định VTF/Kukkiwon. Ban tổ chức đối chiếu với văn bản của Liên đoàn Taekwondo Hà Nội và bỏ nhãn này trước khi phát hành.",
+  luuY: "[CẦN XÁC NHẬN] Kỳ thi lần II/2026 chỉ thi 1, 2, 3 đẳng. Nội dung dưới đây dựng theo quy định VTF/Kukkiwon; Ban tổ chức đối chiếu với văn bản của Liên đoàn Taekwondo thành phố Hà Nội và bỏ nhãn này trước khi phát hành.",
 
   poomDan: {
     tieuDe: "Poom hay Dan?",
@@ -145,24 +145,6 @@ window.NOI_DUNG_THI = {
           "Ý nghĩa bài quyền Keumgang; phương pháp huấn luyện cơ bản; luật thi đấu.",
           "[CẦN XÁC NHẬN] Hình thức: vấn đáp hay bài viết."
         ] }
-      ]
-    },
-    {
-      so: 4, ten: "Tứ đẳng", tenNgan: "4 đẳng", phu: "4 Dan · 4 Poom", mau: "#44494D",
-      ghiChu: "[CẦN XÁC NHẬN] Kỳ thi từ 4 đẳng trở lên thường do Liên đoàn Taekwondo Việt Nam tổ chức (thi thăng cao đẳng). Nếu Liên đoàn Hà Nội không tổ chức, xoá mục này trong data/noi-dung-thi.js.",
-      dieuKien: [
-        "Đang giữ 3 đẳng có chứng chỉ Kukkiwon.",
-        "Thời gian giữ 3 đẳng tối thiểu 3 năm tính đến ngày thi (chuẩn Kukkiwon).",
-        "Tuổi tối thiểu thi 4 Dan: 21 tuổi (chuẩn Kukkiwon)."
-      ],
-      quyen: {
-        batBuoc: ["Taebaek"],
-        tuChon: ["Một bài trong Taegeuk 1 – Taegeuk 8", "Koryo", "Keumgang"]
-      },
-      phanThi: [
-        { icon: "hand", ten: "Kỹ thuật căn bản", moTa: "Trình bày kỹ thuật và phương pháp giảng dạy.", items: [] },
-        { icon: "swords", ten: "Đối luyện & tự vệ", moTa: "", items: ["Phân thế bài Taebaek; tự vệ nâng cao. [CẦN XÁC NHẬN]"] },
-        { icon: "brain", ten: "Lý thuyết", moTa: "", items: ["[CẦN XÁC NHẬN] Bài viết về lý luận, phương pháp huấn luyện."] }
       ]
     }
   ]

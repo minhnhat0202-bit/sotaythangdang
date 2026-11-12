@@ -51,6 +51,22 @@
     ? `<p class="text-xs bg-amber-50 border border-amber-200 text-amber-900 rounded-lg px-3 py-2 leading-relaxed">${txt(v)}</p>`
     : '';
 
+  // Bảng hai cột {ten, doiTuong}
+  const bang = (rows, c1, c2) => (rows || []).length ? `
+    <table class="w-full text-xs">
+      <thead>
+        <tr class="text-left text-[11px] uppercase tracking-wide text-slate-500 border-b border-slate-200">
+          <th class="py-1.5 pr-3 font-bold">${esc(c1)}</th><th class="py-1.5 font-bold">${esc(c2)}</th>
+        </tr>
+      </thead>
+      <tbody>${rows.map(r => `
+        <tr class="border-b border-slate-100 last:border-0">
+          <td class="py-2 pr-3 font-bold text-navy-800 whitespace-nowrap align-top">${txt(r.ten)}</td>
+          <td class="py-2 text-slate-800 leading-relaxed">${txt(r.doiTuong)}</td>
+        </tr>`).join('')}
+      </tbody>
+    </table>` : '';
+
   /* ---------- Pill chọn mục con (dùng chung cho mọi tab) ---------- */
   const PILL_ON  = 'bg-navy-700 text-white border-navy-700 font-bold shadow-md';
   const PILL_OFF = 'bg-white text-slate-700 border-slate-200 hover:bg-slate-50 font-medium shadow-sm';
@@ -104,8 +120,9 @@
             <span class="truncate">${esc(K.donViToChuc)}</span>
           </div>
           <h1 class="text-xs font-extrabold text-brand-gold uppercase tracking-wider leading-normal">${esc(K.tieuDe)}</h1>
-          <div>
+          <div class="flex flex-wrap gap-1.5">
             <span class="text-[11px] bg-brand-gold text-navy-900 font-extrabold px-2.5 py-0.5 rounded-full uppercase tracking-wider inline-block">${txt(K.ngayThi)}</span>
+            ${K.ngayPhu ? `<span class="text-[11px] bg-white/15 text-white font-bold px-2.5 py-0.5 rounded-full tracking-wide inline-block">${txt(K.ngayPhu)}</span>` : ''}
           </div>
         </div>
         <div class="flex flex-col gap-2 items-end shrink-0">
@@ -131,51 +148,68 @@
 
   /* ---------- Tab 1: Tổng quan ---------- */
   function renderTongQuan() {
-    const d = K.diaDiem || {};
-    const mapBtn = laLink(d.mapUrl) ? `
-      <a href="${esc(d.mapUrl)}" target="_blank" rel="noopener"
-         class="inline-flex items-center gap-1.5 bg-navy-700 hover:bg-navy-800 text-white text-xs font-bold px-3 py-2 rounded-lg shadow transition active:scale-95">
-        ${ic('navigation', 'w-3.5 h-3.5')} Chỉ đường (Google Maps)
-      </a>` : '';
-    const mapEmbed = laLink(d.mapEmbed) ? `
-      <div class="rounded-xl overflow-hidden border border-slate-200 aspect-video">
-        <iframe src="${esc(d.mapEmbed)}" class="w-full h-full" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen title="Bản đồ địa điểm thi"></iframe>
-      </div>` : '';
-    const diChuyen = (K.diChuyen || []).map(x => `
-      <li class="flex items-start gap-2">
-        <span class="shrink-0 mt-0.5 w-5 h-5 rounded-full bg-navy-50 text-navy-700 flex items-center justify-center">${ic(x.icon || 'arrow-right', 'w-3 h-3')}</span>
-        <div class="leading-relaxed"><span class="font-bold text-slate-900">${txt(x.phuongTien)}:</span> <span class="text-slate-600">${txt(x.moTa)}</span></div>
+    // diaDiem là mảng (nhiều địa điểm) hoặc một đối tượng (kiểu cũ)
+    const dds = (Array.isArray(K.diaDiem) ? K.diaDiem : [K.diaDiem]).filter(Boolean);
+
+    const theDiaDiem = (d, i) => {
+      const mapBtn = laLink(d.mapUrl) ? `
+        <a href="${esc(d.mapUrl)}" target="_blank" rel="noopener"
+           class="inline-flex items-center gap-1.5 bg-navy-700 hover:bg-navy-800 text-white text-xs font-bold px-3 py-2 rounded-lg shadow transition active:scale-95">
+          ${ic('navigation', 'w-3.5 h-3.5')} Chỉ đường (Google Maps)
+        </a>` : '';
+      const mapEmbed = laLink(d.mapEmbed) ? `
+        <div class="rounded-xl overflow-hidden border border-slate-200 aspect-video">
+          <iframe src="${esc(d.mapEmbed)}" class="w-full h-full" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen title="Bản đồ: ${esc(d.ten)}"></iframe>
+        </div>` : '';
+      const dc = (d.diChuyen || []).concat(i === 0 ? (K.diChuyen || []) : []);
+      const diChuyen = dc.map(x => `
+        <li class="flex items-start gap-2">
+          <span class="shrink-0 mt-0.5 w-5 h-5 rounded-full bg-navy-50 text-navy-700 flex items-center justify-center">${ic(x.icon || 'arrow-right', 'w-3 h-3')}</span>
+          <div class="leading-relaxed"><span class="font-bold text-slate-900">${txt(x.phuongTien)}:</span> <span class="text-slate-600">${txt(x.moTa)}</span></div>
+        </li>`).join('');
+      return card('map-pin', d.nhan || 'Địa điểm & di chuyển', `
+        <div class="text-xs space-y-1">
+          <div class="font-bold text-slate-900 text-sm leading-snug">${txt(d.ten)}</div>
+          <div class="text-slate-600">${txt(d.diaChi)}</div>
+          ${d.ghiChu ? `<div class="text-slate-500 italic">${txt(d.ghiChu)}</div>` : ''}
+        </div>
+        ${mapBtn}
+        ${mapEmbed}
+        ${diChuyen ? `<ul class="text-xs space-y-2 pt-1">${diChuyen}</ul>` : ''}`, i === 0 ? 'navy' : 'slate');
+    };
+
+    const vanBan = (K.vanBan || []).filter(v => v && v.url).map(v => `
+      <li>
+        <a href="${esc(v.url)}" target="_blank" rel="noopener" class="flex items-start gap-2.5 bg-slate-50 hover:bg-slate-100 rounded-lg px-3 py-2 transition">
+          <span class="shrink-0 w-7 h-7 rounded-full bg-brand-red/10 text-brand-red flex items-center justify-center">${ic('file-text', 'w-3.5 h-3.5')}</span>
+          <span class="font-bold text-navy-700 leading-relaxed">${txt(v.ten)}</span>
+        </a>
       </li>`).join('');
+
     const btc = (K.banToChuc || []).map(x => `
       <li class="flex justify-between gap-3 bg-slate-50 px-3 py-2 rounded-lg">
-        <span class="text-slate-600">${txt(x.vaiTro)}</span>
-        <span class="font-bold text-slate-900 text-right">${txt(x.ten)}</span>
+        <span class="text-slate-600 shrink-0">${txt(x.vaiTro)}</span>
+        <span class="font-bold text-slate-900 text-right leading-relaxed">${txt(x.ten)}</span>
       </li>`).join('');
 
     $('#tab-tong-quan').innerHTML = `
       ${card('info', 'Thông tin kỳ thi', `
         <dl class="text-xs grid grid-cols-[auto_1fr] gap-x-3 gap-y-2">
           ${dt('Đơn vị tổ chức', K.donViToChuc)}
-          ${dt('Đợt thi', K.dot)}
+          ${dt('Kỳ thi', K.dot)}
           ${dt('Ngày thi', K.ngayThi)}
+          ${dt('Trước ngày thi', K.ngayPhu)}
           ${dt('Đối tượng', K.doiTuong)}
         </dl>
         ${ghiChu(K.ghiChuChung)}`)}
-      ${card('map-pin', 'Địa điểm & di chuyển', `
-        <div class="text-xs space-y-1">
-          <div class="font-bold text-slate-900 text-sm">${txt(d.ten)}</div>
-          <div class="text-slate-600">${txt(d.diaChi)}</div>
-          ${d.ghiChu ? `<div class="text-slate-500 italic">${txt(d.ghiChu)}</div>` : ''}
-        </div>
-        ${mapBtn}
-        ${mapEmbed}
-        ${diChuyen ? `<ul class="text-xs space-y-2 pt-1">${diChuyen}</ul>` : ''}`)}
-      ${btc ? card('users', 'Ban tổ chức & Hội đồng khảo thí', `<ul class="text-xs space-y-1.5">${btc}</ul>`) : ''}`;
+      ${dds.map(theDiaDiem).join('')}
+      ${vanBan ? card('file-text', 'Văn bản của Ban tổ chức', `<ul class="text-xs space-y-1.5">${vanBan}</ul>`) : ''}
+      ${btc ? card('users', 'Ban tổ chức', `<ul class="text-xs space-y-1.5">${btc}</ul>`) : ''}`;
   }
 
   /* ---------- Tab 2: Lịch trình ---------- */
   function renderLichTrinh() {
-    const cards = (K.lichTrinh || []).map((c, i) => {
+    const theCard = (c, i) => {
       const m = c.mau || mau(i);
       const steps = (c.buoc || []).map((b, j) => `
         <div class="relative flex items-start gap-2.5">
@@ -200,7 +234,26 @@
             ${steps ? `<div class="relative pl-8 space-y-3"><div class="absolute left-[11px] top-3 bottom-3 w-[2px] bg-${m}-300"></div>${steps}</div>` : ''}
           </div>
         </div>`;
-    }).join('');
+    };
+
+    // Gom thẻ theo trường `ngay`; không có `ngay` thì tất cả chung một nhóm
+    const nhom = [];
+    (K.lichTrinh || []).forEach((c, i) => {
+      const key = c.ngay || '';
+      let g = nhom[nhom.length - 1];
+      if (!g || g.ngay !== key) { g = { ngay: key, diaDiem: c.diaDiem || '', cards: [] }; nhom.push(g); }
+      g.cards.push(theCard(c, i));
+    });
+    const timeline = nhom.map(g => `
+      ${g.ngay ? `
+        <div class="flex items-start gap-2 pt-1">
+          <span class="shrink-0 w-7 h-7 rounded-lg bg-navy-800 text-white flex items-center justify-center">${ic('calendar-days', 'w-3.5 h-3.5')}</span>
+          <div class="min-w-0">
+            <div class="text-xs font-extrabold text-navy-900 uppercase tracking-wide leading-snug">${txt(g.ngay)}</div>
+            ${g.diaDiem ? `<div class="text-[11px] text-slate-500 leading-snug">${txt(g.diaDiem)}</div>` : ''}
+          </div>
+        </div>` : ''}
+      <div class="relative pl-6 space-y-4 before:absolute before:left-[7px] before:top-3 before:bottom-3 before:w-[2px] before:bg-slate-200">${g.cards.join('')}</div>`).join('');
 
     const danDo = (K.danDo || []).map(g => `
       <div class="border border-slate-200 rounded-xl p-3.5 space-y-2">
@@ -213,9 +266,9 @@
     $('#tab-lich-trinh').innerHTML = `
       ${pills('lich', [['sched', '⏳', 'Khung thời gian'], ['rules', '📝', 'Dặn dò trước kỳ thi']])}
       <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200">
-        <div data-sub-panel="lich:sched" class="fade-in">
+        <div data-sub-panel="lich:sched" class="fade-in space-y-4">
           ${ghiChu(K.ghiChuLichTrinh)}
-          <div class="relative pl-6 space-y-4 ${K.ghiChuLichTrinh ? 'mt-3' : ''} before:absolute before:left-[7px] before:top-3 before:bottom-3 before:w-[2px] before:bg-slate-200">${cards}</div>
+          ${timeline}
         </div>
         <div data-sub-panel="lich:rules" class="hidden space-y-3">${danDo}</div>
       </div>`;
@@ -287,9 +340,29 @@
       ${nguon}`;
   }
 
-  /* ---------- Tab 4: Hồ sơ & lệ phí ---------- */
+  /* ---------- Tab 4: Số báo danh / Hồ sơ & lệ phí ---------- */
   function renderHoSo() {
     const h = K.hoSo || {};
+    const s = K.soBaoDanh || {};
+
+    const sbd = ((s.ban || []).length || (s.buoiThi || []).length) ? `
+      ${card('ticket', s.tieuDe || 'Số báo danh', `
+        <dl class="text-xs grid grid-cols-[auto_1fr] gap-x-3 gap-y-2">
+          ${dt('Thời gian', s.thoiGian)}
+          ${dt('Địa điểm', s.diaDiem)}
+        </dl>
+        ${bang(s.ban, 'Bàn phát số', 'Đối tượng & số báo danh')}
+        ${(s.quyDinh || []).length ? `<ul class="text-xs text-slate-700 space-y-1.5 list-disc pl-4 leading-relaxed">${list(s.quyDinh)}</ul>` : ''}`)}
+      ${(s.buoiThi || []).length ? card('calendar-check', s.tieuDeBuoiThi || 'Buổi thi theo số báo danh',
+        bang(s.buoiThi, 'Buổi thi', 'Đối tượng'), 'rose') : ''}` : '';
+
+    const han = (h.hanNop || h.noiNop || h.hinhThuc) ? card('calendar-clock', 'Thời hạn & nơi nộp', `
+      <dl class="text-xs grid grid-cols-[auto_1fr] gap-x-3 gap-y-2">
+        ${dt('Hạn nộp', h.hanNop)}
+        ${dt('Nơi nộp', h.noiNop)}
+        ${dt('Hình thức', h.hinhThuc)}
+      </dl>`) : '';
+
     const giayTo = (h.giayTo || []).map((g, i) => `
       <li class="flex items-start gap-2.5 bg-slate-50 rounded-lg px-3 py-2">
         <span class="shrink-0 w-5 h-5 rounded-full bg-navy-700 text-white text-[11px] font-bold flex items-center justify-center mt-0.5">${i + 1}</span>
@@ -306,18 +379,15 @@
         <span class="text-slate-800 leading-relaxed">${txt(b)}</span>
       </li>`).join('');
 
-    $('#tab-ho-so').innerHTML = `
-      ${card('calendar-clock', 'Thời hạn & nơi nộp', `
-        <dl class="text-xs grid grid-cols-[auto_1fr] gap-x-3 gap-y-2">
-          ${dt('Hạn nộp', h.hanNop)}
-          ${dt('Nơi nộp', h.noiNop)}
-          ${dt('Hình thức', h.hinhThuc)}
-        </dl>`)}
-      ${giayTo ? card('folder-check', 'Hồ sơ dự thi', `<ul class="text-xs space-y-1.5">${giayTo}</ul>${ghiChu(h.ghiChuHoSo)}`) : ''}
-      ${phi ? card('wallet', 'Lệ phí', `
-        <table class="w-full text-xs"><tbody>${phi}</tbody></table>
-        ${h.ghiChuLePhi ? `<p class="text-[11px] text-slate-500 leading-relaxed">${txt(h.ghiChuLePhi)}</p>` : ''}`) : ''}
-      ${buoc ? card('list-ordered', 'Các bước đăng ký', `<ol class="text-xs space-y-2">${buoc}</ol>`) : ''}`;
+    const body = sbd + han
+      + (giayTo ? card('folder-check', 'Hồ sơ dự thi', `<ul class="text-xs space-y-1.5">${giayTo}</ul>${ghiChu(h.ghiChuHoSo)}`) : '')
+      + (phi ? card('wallet', 'Lệ phí', `
+          <table class="w-full text-xs"><tbody>${phi}</tbody></table>
+          ${h.ghiChuLePhi ? `<p class="text-[11px] text-slate-500 leading-relaxed">${txt(h.ghiChuLePhi)}</p>` : ''}`) : '')
+      + (buoc ? card('list-ordered', 'Các bước đăng ký', `<ol class="text-xs space-y-2">${buoc}</ol>`) : '');
+
+    $('#tab-ho-so').innerHTML = body
+      || `<p class="text-xs text-slate-500 text-center py-8">Chưa có thông tin cho mục này.</p>`;
   }
 
   /* ---------- Tab 5: Liên hệ & kết quả ---------- */
@@ -350,12 +420,13 @@
   }
 
   /* ---------- Thanh điều hướng & chuyển tab ---------- */
+  const nhanHoSo = (K.nhanTab && K.nhanTab.hoSo) || {};
   const TABS = [
-    ['tong-quan',  'info',            'Tổng quan'],
-    ['lich-trinh', 'clock',           'Lịch trình'],
-    ['noi-dung',   'book-open-check', 'Nội dung thi'],
-    ['ho-so',      'folder-check',    'Hồ sơ & lệ phí'],
-    ['lien-he',    'phone',           'Liên hệ'],
+    ['tong-quan',  'info',                            'Tổng quan'],
+    ['lich-trinh', 'clock',                           'Lịch trình'],
+    ['noi-dung',   'book-open-check',                 'Nội dung thi'],
+    ['ho-so',      nhanHoSo.icon || 'folder-check',   nhanHoSo.nhan || 'Hồ sơ & lệ phí'],
+    ['lien-he',    'phone',                           'Liên hệ'],
   ];
 
   function renderNav() {

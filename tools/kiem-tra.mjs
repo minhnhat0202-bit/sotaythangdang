@@ -88,11 +88,16 @@ const win = {};
     can(K.donViToChuc, 'KY_THI.donViToChuc');
     can(K.tieuDe, 'KY_THI.tieuDe');
     can(K.ngayThi, 'KY_THI.ngayThi');
-    can(K.diaDiem && K.diaDiem.ten, 'KY_THI.diaDiem.ten');
-    can(K.diaDiem && K.diaDiem.diaChi, 'KY_THI.diaDiem.diaChi');
+    // diaDiem là mảng (nhiều địa điểm) hoặc một đối tượng (kiểu cũ)
+    const dds = (Array.isArray(K.diaDiem) ? K.diaDiem : [K.diaDiem]).filter(Boolean);
+    can(dds.length, 'KY_THI.diaDiem (ít nhất 1)');
+    dds.forEach((d, i) => can(d.ten && d.diaChi, `KY_THI.diaDiem[${i}].ten / .diaChi`));
     can(Array.isArray(K.hotline) && K.hotline.length, 'KY_THI.hotline (ít nhất 1)');
     can(Array.isArray(K.lichTrinh) && K.lichTrinh.length, 'KY_THI.lichTrinh (ít nhất 1)');
-    can(K.hoSo && Array.isArray(K.hoSo.giayTo) && K.hoSo.giayTo.length, 'KY_THI.hoSo.giayTo (ít nhất 1)');
+    // Tab 4 phải có gì đó: hồ sơ (giai đoạn đăng ký) hoặc số báo danh (sát ngày thi)
+    const coHoSo = K.hoSo && Array.isArray(K.hoSo.giayTo) && K.hoSo.giayTo.length;
+    const coSBD = K.soBaoDanh && Array.isArray(K.soBaoDanh.ban) && K.soBaoDanh.ban.length;
+    can(coHoSo || coSBD, 'KY_THI.hoSo.giayTo hoặc KY_THI.soBaoDanh.ban (ít nhất 1)');
     for (const [i, c] of (K.lichTrinh || []).entries()) {
       can(c.gio && c.ten, `KY_THI.lichTrinh[${i}].gio / .ten`);
     }
@@ -124,6 +129,9 @@ console.log('\n[4] Tệp được tham chiếu');
   }
   const K = win.KY_THI || {};
   if (K.logo && !/^https?:/.test(K.logo) && !co(K.logo)) thieu.add(`data/ky-thi.js → logo: ${K.logo}`);
+  for (const v of K.vanBan || []) {
+    if (v && v.url && !/^https?:/.test(v.url) && !co(v.url)) thieu.add(`data/ky-thi.js → vanBan: ${v.url}`);
+  }
   thieu.size ? [...thieu].forEach(KO) : OK('không thiếu tệp nào');
 }
 

@@ -40,5 +40,8 @@ Bỏ một đẳng: xoá cả phần tử. Thêm đẳng: chép một phần t�
 Đặt tệp logo chính thức vào `assets/img/` (PNG nền trong suốt, ≥ 256 px hoặc SVG), đổi trường
 `logo` trong `data/ky-thi.js` và thẻ `<link rel="icon">` trong `index.html` cho khớp. Việc của Claude.
 
-## Quy ước commit
+## Quy ước commit & push
 Tiếng Việt, một dòng nói rõ đổi gì, ví dụ: `Cập nhật ngày thi và địa điểm đợt 1/2027`.
+Remote `origin` là https://github.com/minhnhat0202-bit/sotaythangdang (tài khoản gh `minhnhat0202-bit`,
+repo đã cấu hình credential qua `gh auth git-credential`). Push lên `main` là GitHub Pages tự cập nhật:
+https://minhnhat0202-bit.github.io/sotaythangdang/ — **omp không push**, Claude push sau khi người dùng duyệt.

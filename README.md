@@ -56,10 +56,12 @@ node tools/kiem-tra.mjs --phat-hanh  # trước khi gửi cho thí sinh: không 
 
 ## Đưa lên mạng (GitHub Pages)
 
-1. Đẩy nhánh `main` lên GitHub.
-2. Settings → Pages → Source: *Deploy from a branch* → `main` / `/ (root)`.
-3. Địa chỉ sẽ là `https://<tài-khoản>.github.io/<tên-repo>/`. Tệp `.nojekyll` đã có sẵn để
-   GitHub không xử lý lại thư mục.
+- Repo: https://github.com/minhnhat0202-bit/sotaythangdang
+- Trang: https://minhnhat0202-bit.github.io/sotaythangdang/
+
+Push nhánh `main` là GitHub Pages tự cập nhật sau 1–2 phút (Settings → Pages đã trỏ `main` /
+`/ (root)`; tệp `.nojekyll` để GitHub không xử lý lại thư mục). Muốn mở thẳng một tab khi gửi
+link: thêm `#lich-trinh`, `#noi-dung`, `#ho-so` hoặc `#lien-he` vào cuối địa chỉ.
 
 ## Việc còn thiếu
 

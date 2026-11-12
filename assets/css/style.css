@@ -1,0 +1,51 @@
+/* =============================================================
+   SỔ TAY KỲ THI THĂNG ĐẲNG — kiểu riêng ngoài Tailwind
+   ============================================================= */
+
+:root {
+  --navy: #0B2A5B;
+  --red: #C8102E;
+  --gold: #F5B301;
+}
+
+body {
+  -webkit-tap-highlight-color: transparent;
+  /* chừa chỗ cho thanh điều hướng đáy + vùng an toàn iPhone */
+  padding-bottom: calc(4.5rem + env(safe-area-inset-bottom));
+}
+
+.safe-area-bottom {
+  padding-bottom: max(0.5rem, env(safe-area-inset-bottom));
+}
+
+/* Thẻ (tab) chính */
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+
+.fade-in { animation: fadeIn 0.25s ease-in-out forwards; }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Thanh trượt pill, ẩn thanh cuộn */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Nhãn [CẦN CẬP NHẬT] / [CẦN XÁC NHẬN] trong dữ liệu: hiện vàng để người duyệt không bỏ sót */
+mark.cho {
+  background: #fef08a;
+  color: #713f12;
+  font-weight: 700;
+  padding: 0 0.25em;
+  border-radius: 0.25em;
+}
+
+/* In ra giấy: hiện toàn bộ nội dung, bỏ thanh điều hướng và nút */
+@media print {
+  body { padding-bottom: 0; background: #fff; }
+  .tab-content { display: block !important; page-break-inside: avoid; }
+  #nav, [data-toggle], #hotlineDropdown { display: none !important; }
+  #header { position: static; }
+  mark.cho { outline: 2px solid #713f12; }
+}

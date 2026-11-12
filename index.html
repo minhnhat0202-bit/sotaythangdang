@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Sổ tay Kỳ thi thăng đẳng — Liên đoàn Taekwondo Hà Nội</title>
+  <meta name="description" content="Hướng dẫn thí sinh, huấn luyện viên và phụ huynh về kỳ thi thăng đẳng Taekwondo do Liên đoàn Taekwondo Hà Nội tổ chức: địa điểm, lịch trình, nội dung thi theo đẳng, hồ sơ và lệ phí.">
+  <meta name="theme-color" content="#0B2A5B">
+  <meta property="og:title" content="Sổ tay Kỳ thi thăng đẳng — Liên đoàn Taekwondo Hà Nội">
+  <meta property="og:description" content="Địa điểm, lịch trình, nội dung thi theo đẳng, hồ sơ và lệ phí kỳ thi thăng đẳng.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+
+  <!-- Tailwind (CDN) + bảng màu riêng của sổ tay -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: { 50: '#EEF2F9', 100: '#D9E1F2', 200: '#B3C3E5', 300: '#7F98D0', 400: '#4C6DB8',
+                    500: '#2A4F9E', 600: '#1C3D82', 700: '#122F68', 800: '#0B2A5B', 900: '#071C40', 950: '#04122B' },
+            brand: { red: '#C8102E', gold: '#F5B301' }
+          }
+        }
+      }
+    };
+  </script>
+  <!-- Bộ icon Lucide, ghim phiên bản để giao diện không đổi theo thời gian -->
+  <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body class="bg-slate-100 text-slate-800 font-sans antialiased min-h-screen">
+
+  <div class="max-w-md md:max-w-2xl lg:max-w-3xl mx-auto bg-slate-50 min-h-screen shadow-2xl relative border-x border-slate-200">
+
+    <!-- Đầu trang cố định: logo, tên kỳ thi, ngày thi, hotline — dựng bởi assets/js/app.js -->
+    <header id="header" class="sticky top-0 z-50 bg-navy-800 text-white p-4 shadow-md"></header>
+
+    <main class="p-4 space-y-4">
+      <div id="tab-tong-quan" class="tab-content active space-y-4"></div>
+      <div id="tab-lich-trinh" class="tab-content space-y-4"></div>
+      <div id="tab-noi-dung" class="tab-content space-y-4"></div>
+      <div id="tab-ho-so" class="tab-content space-y-4"></div>
+      <div id="tab-lien-he" class="tab-content space-y-4"></div>
+    </main>
+
+    <!-- Thanh điều hướng đáy — dựng bởi assets/js/app.js -->
+    <nav id="nav" class="fixed bottom-0 left-0 right-0 max-w-md md:max-w-2xl lg:max-w-3xl mx-auto bg-white border-t border-slate-200 flex justify-between items-center px-1 py-2 z-50 shadow-lg safe-area-bottom"></nav>
+
+  </div>
+
+  <noscript>
+    <div class="p-4 text-sm text-center text-slate-700">Sổ tay cần bật JavaScript để hiển thị nội dung.</div>
+  </noscript>
+
+  <!-- Dữ liệu: sửa hai tệp này để đổi nội dung (xem AGENTS.md) -->
+  <script src="data/ky-thi.js"></script>
+  <script src="data/noi-dung-thi.js"></script>
+  <!-- Giao diện -->
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

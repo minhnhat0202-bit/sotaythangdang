@@ -78,7 +78,7 @@ window.KY_THI = {
       ngay: "Thứ Bảy, 14/11/2026 — Tập huấn & phát số báo danh",
       diaDiem: "Nhà tập Bộ môn Taekwondo, 38 Lê Đức Thọ (Trung tâm Huấn luyện VĐV cấp cao Hà Nội)",
       gio: "08:00", ten: "Tập huấn buổi sáng", mau: "emerald",
-      moTa: "Thí sinh có mặt lúc 08h00. [CẦN XÁC NHẬN] Nhóm nào tập huấn buổi sáng, nhóm nào buổi chiều.",
+      moTa: "Tất cả thí sinh cùng tập huấn, không chia nhóm. Có mặt lúc 08h00.",
       buoc: [
         { ten: "Điểm danh, ổn định tổ chức", moTa: "Huấn luyện viên và võ sinh có mặt đúng giờ." },
         { ten: "Triển khai nội dung chuyên môn", moTa: "Ban giảng huấn phổ biến nội dung ba sàn thi (Kỹ thuật, Đối luyện, Thể lực) và kiểm tra võ phục ngay trong buổi tập huấn." }
@@ -87,7 +87,7 @@ window.KY_THI = {
     {
       ngay: "Thứ Bảy, 14/11/2026 — Tập huấn & phát số báo danh",
       gio: "13:00", ten: "Tập huấn buổi chiều", mau: "blue",
-      moTa: "Thí sinh có mặt lúc 13h00.",
+      moTa: "Tất cả thí sinh cùng tập huấn, không chia nhóm. Có mặt lúc 13h00.",
       buoc: [
         { ten: "Điểm danh, ổn định tổ chức", moTa: "" },
         { ten: "Triển khai nội dung chuyên môn", moTa: "Theo chương trình của Ban giảng huấn." }

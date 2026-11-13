@@ -23,7 +23,7 @@ Chạy `node tools/kiem-tra.mjs` để xem còn bao nhiêu nhãn, ở dòng nào
 ## Kỳ thi (`data/ky-thi.js`)
 - [ ] Số điện thoại bộ phận Thư ký kỳ thi và Văn phòng Liên đoàn — có số thì điền `hotline[]`, nút Hotline tự hiện lại
       (đã bỏ nút và tab Liên hệ ngày 13/11 vì chưa có số; muốn hiện lại tab thì bỏ `"lien-he"` khỏi `tabAn`)
-- [ ] Nhóm nào tập huấn buổi sáng, nhóm nào buổi chiều ngày 14/11
+- [x] Tập huấn 14/11: tất cả cùng tập, không chia nhóm (người dùng xác nhận 13/11)
 - [ ] Giờ khai mạc và giờ bắt đầu thi từng sàn (hiện chỉ có giờ có mặt 07h00 / 12h30)
 - [x] Địa điểm tập huấn đã ghim đúng toạ độ (link Google Maps do Liên đoàn cung cấp: Trung tâm Huấn luyện VĐV cấp cao Hà Nội)
 - [ ] Kiểm tra lại vị trí Nhà thi đấu Tương Mai trên Google Maps (link tạo từ địa chỉ, chưa ghim toạ độ)
@@ -32,9 +32,8 @@ Chạy `node tools/kiem-tra.mjs` để xem còn bao nhiêu nhãn, ở dòng nào
 - [ ] Link tra cứu SBD (nếu Liên đoàn công bố danh sách online) → `traCuu.url`
 - [x] Ban tổ chức: đã bỏ thẻ này (13/11) — phân công Ban chuyên môn là văn bản nội bộ, không công khai tên
 
-## Quy định chuyên môn (`data/noi-dung-thi.js`)
-- [ ] Nội dung cụ thể sàn Thể lực; số thế một bước đối luyện; hình thức đối luyện có bảo hộ
-- [ ] Văn bản quy định thi thăng đẳng mà Liên đoàn Hà Nội áp dụng (QĐ 152/2025/QĐ-VTF hay văn bản riêng)
-- [ ] Thời gian giữ cấp 1 tối thiểu để thi 1 đẳng; cách tính tuổi (đến ngày thi hay theo năm)
-- [ ] Tuổi và thời gian giữ đẳng tối thiểu của 2, 3 đẳng theo VTF (hiện ghi theo Kukkiwon)
-- [ ] Thủ tục chuyển đổi Poom → Dan khi đủ 15 tuổi
+## Nội dung thi (`data/noi-dung-thi.js`)
+Ngày 13/11 đã bỏ toàn bộ phần tự dựng không có văn bản (điều kiện dự thi, chi tiết từng sàn, Poom/Dan).
+Tab hiện chỉ còn: ba sàn theo sơ đồ, võ phục + bàn thi theo đẳng, bài quyền theo QĐ 152/2025/QĐ-VTF.
+- [ ] Nếu Ban giảng huấn phổ biến nội dung cụ thể từng sàn (Kỹ thuật, Đối luyện, Thể lực) tại buổi tập huấn
+      → điền vào `phanMon[].moTa` hoặc `dang[].phanThi[]`

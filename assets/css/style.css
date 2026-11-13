@@ -10,8 +10,8 @@
 
 body {
   -webkit-tap-highlight-color: transparent;
-  /* chừa chỗ cho thanh điều hướng đáy + vùng an toàn iPhone */
-  padding-bottom: calc(4.5rem + env(safe-area-inset-bottom));
+  /* chừa chỗ cho thanh điều hướng đáy (cao hơn sau khi tăng cỡ chữ) + vùng an toàn iPhone */
+  padding-bottom: calc(5.25rem + env(safe-area-inset-bottom));
 }
 
 .safe-area-bottom {

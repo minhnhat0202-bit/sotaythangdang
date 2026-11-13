@@ -61,6 +61,11 @@ Mỗi phần tử `dang[]`: `so` (không trùng), `ten`, `tenNgan`, `phu`, `mau`
 `phanThi[{icon, ten, moTa, items[]}]` + `tieuDePhanThi`. Khối nào trống thì tự ẩn.
 Bỏ một đẳng: xoá cả phần tử. Thêm đẳng: chép một phần tử có sẵn, đổi `so` và nội dung.
 
+## Cỡ chữ
+Thang cỡ chữ Tailwind được định nghĩa lại trong `index.html` (`fontSize`): `text-2xs` = 12px (nhãn phụ),
+`text-xs` = 14px (chữ thường), `text-sm` = 16px, `text-base` = 17px. Muốn to/nhỏ toàn trang thì đổi ở đó,
+**không** sửa từng class trong `app.js`. Không dùng `text-[11px]`/`text-[9px]` tuỳ ý — dùng `text-2xs`.
+
 ## Thay logo
 Logo hiện tại: `assets/img/logo.png` (256×256, cắt tròn, nền trong suốt, ~21 KB; gốc là ảnh JPG HNTF trong
 `2. Taekwondo/Logo/`, cắt bằng PIL: tìm khung bao phần không trắng → cắt vuông → mặt nạ tròn → quantize). Có logo mới: làm ảnh vuông nền trong suốt ≥ 256 px, ghi đè tệp này hoặc đổi trường

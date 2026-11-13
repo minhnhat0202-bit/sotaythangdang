@@ -18,6 +18,15 @@
     tailwind.config = {
       theme: {
         extend: {
+          // Thang cỡ chữ nâng lên một bậc cho dễ đọc trên điện thoại:
+          // xs = 14px (chữ thường), sm = 16px, 2xs = 12px (nhãn phụ)
+          fontSize: {
+            '2xs': ['0.75rem', { lineHeight: '1.05rem' }],
+            'xs':  ['0.875rem', { lineHeight: '1.35rem' }],
+            'sm':  ['1rem', { lineHeight: '1.5rem' }],
+            'base': ['1.0625rem', { lineHeight: '1.6rem' }],
+            'lg':  ['1.1875rem', { lineHeight: '1.7rem' }]
+          },
           colors: {
             navy: { 50: '#EEF2F9', 100: '#D9E1F2', 200: '#B3C3E5', 300: '#7F98D0', 400: '#4C6DB8',
                     500: '#2A4F9E', 600: '#1C3D82', 700: '#122F68', 800: '#0B2A5B', 900: '#071C40', 950: '#04122B' },
@@ -29,7 +38,7 @@
   </script>
   <!-- Bộ icon Lucide, ghim phiên bản để giao diện không đổi theo thời gian -->
   <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
-  <link rel="stylesheet" href="assets/css/style.css?v=67678987">
+  <link rel="stylesheet" href="assets/css/style.css?v=46b4a11b">
 </head>
 
 <body class="bg-slate-100 text-slate-800 font-sans antialiased min-h-screen">
@@ -48,7 +57,7 @@
     </main>
 
     <!-- Thanh điều hướng đáy — dựng bởi assets/js/app.js -->
-    <nav id="nav" class="fixed bottom-0 left-0 right-0 max-w-md md:max-w-2xl lg:max-w-3xl mx-auto bg-white border-t border-slate-200 flex justify-between items-center px-1 py-2 z-50 shadow-lg safe-area-bottom"></nav>
+    <nav id="nav" class="fixed bottom-0 left-0 right-0 max-w-md md:max-w-2xl lg:max-w-3xl mx-auto bg-white border-t border-slate-200 flex justify-between items-stretch gap-1 px-1.5 py-1.5 z-50 shadow-lg safe-area-bottom"></nav>
 
   </div>
 
@@ -57,9 +66,9 @@
   </noscript>
 
   <!-- Dữ liệu: sửa hai tệp này để đổi nội dung (xem AGENTS.md) -->
-  <script src="data/ky-thi.js?v=67678987"></script>
-  <script src="data/noi-dung-thi.js?v=67678987"></script>
+  <script src="data/ky-thi.js?v=46b4a11b"></script>
+  <script src="data/noi-dung-thi.js?v=46b4a11b"></script>
   <!-- Giao diện -->
-  <script src="assets/js/app.js?v=67678987"></script>
+  <script src="assets/js/app.js?v=46b4a11b"></script>
 </body>
 </html>

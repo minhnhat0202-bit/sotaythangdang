@@ -55,7 +55,7 @@
   const bang = (rows, c1, c2) => (rows || []).length ? `
     <table class="w-full text-xs">
       <thead>
-        <tr class="text-left text-[11px] uppercase tracking-wide text-slate-500 border-b border-slate-200">
+        <tr class="text-left text-2xs uppercase tracking-wide text-slate-500 border-b border-slate-200">
           <th class="py-1.5 pr-3 font-bold">${esc(c1)}</th><th class="py-1.5 font-bold">${esc(c2)}</th>
         </tr>
       </thead>
@@ -72,7 +72,7 @@
     <div class="overflow-x-auto -mx-1 px-1">
       <table class="w-full text-xs">
         <thead>
-          <tr class="text-left text-[11px] uppercase tracking-wide text-slate-500 border-b border-slate-200">
+          <tr class="text-left text-2xs uppercase tracking-wide text-slate-500 border-b border-slate-200">
             ${t.cot.map((c, i) => `<th class="py-1.5 ${i ? 'px-2' : 'pr-2'} font-bold whitespace-nowrap">${esc(c)}</th>`).join('')}
           </tr>
         </thead>
@@ -90,7 +90,7 @@
       <div class="flex flex-wrap items-center gap-x-2 gap-y-1 bg-white/80 border border-${m}-200/70 rounded-lg px-2.5 py-1.5">
         <span class="font-bold text-slate-900 text-xs basis-full sm:basis-auto sm:min-w-[8.5rem]">${txt(n.ten)}</span>
         <span class="flex flex-wrap gap-1.5">${(n.san || []).map(([nhan, gt]) => `
-          <span class="inline-flex items-center gap-1 text-[11px] bg-${m}-100 text-${m}-900 rounded px-1.5 py-0.5 whitespace-nowrap">
+          <span class="inline-flex items-center gap-1 text-2xs bg-${m}-100 text-${m}-900 rounded px-1.5 py-0.5 whitespace-nowrap">
             <span class="opacity-70">${esc(nhan)}</span><span class="font-extrabold">${esc(gt)}</span>
           </span>`).join('')}</span>
       </div>`).join('')}
@@ -100,7 +100,7 @@
   const duoi = (b, m) => `
     ${(b.items || []).length ? `<ul class="text-xs text-slate-600 mt-1 list-disc pl-4 space-y-0.5 leading-relaxed">${list(b.items)}</ul>` : ''}
     ${chipNhom(b.nhom, m)}
-    ${b.ghiChu ? `<p class="text-[11px] text-slate-500 mt-1.5 italic leading-relaxed">${txt(b.ghiChu)}</p>` : ''}`;
+    ${b.ghiChu ? `<p class="text-2xs text-slate-500 mt-1.5 italic leading-relaxed">${txt(b.ghiChu)}</p>` : ''}`;
 
   /* ---------- Pill chọn mục con (dùng chung cho mọi tab) ---------- */
   const PILL_ON  = 'bg-navy-700 text-white border-navy-700 font-bold shadow-md';
@@ -143,27 +143,27 @@
 
     const traCuu = K.traCuu && K.traCuu.url ? `
       <a href="${esc(K.traCuu.url)}" target="_blank" rel="noopener"
-         class="flex items-center gap-1 bg-brand-gold hover:brightness-95 text-navy-900 text-[11px] font-bold py-2 px-2 rounded-md shadow transition active:scale-95 whitespace-nowrap">
+         class="flex items-center gap-1 bg-brand-gold hover:brightness-95 text-navy-900 text-2xs font-bold py-2 px-2 rounded-md shadow transition active:scale-95 whitespace-nowrap">
         ${ic('search', 'w-3 h-3')}<span>${esc(K.traCuu.nhan || 'Tra cứu SBD')}</span>${ic('external-link', 'w-3 h-3 opacity-70')}
       </a>` : '';
 
     $('#header').innerHTML = `
       <div class="flex justify-between items-center gap-2">
         <div class="flex flex-col gap-1.5 min-w-0">
-          <div class="flex items-center gap-1.5 text-[11px] font-extrabold uppercase tracking-wider leading-normal">
+          <div class="flex items-center gap-1.5 text-2xs font-extrabold uppercase tracking-wider leading-normal">
             <img src="${esc(K.logo || 'assets/img/logo.png')}" alt="Logo ${esc(K.donViToChuc)}" width="24" height="24" class="w-6 h-6 rounded-full object-cover bg-white shrink-0">
             <span class="truncate">${esc(K.donViToChuc)}</span>
           </div>
           <h1 class="text-xs font-extrabold text-brand-gold uppercase tracking-wider leading-normal">${esc(K.tieuDe)}</h1>
           <div class="flex flex-wrap gap-1.5">
-            <span class="text-[11px] bg-brand-gold text-navy-900 font-extrabold px-2.5 py-0.5 rounded-full uppercase tracking-wider inline-block">${txt(K.ngayThi)}</span>
-            ${K.ngayPhu ? `<span class="text-[11px] bg-white/15 text-white font-bold px-2.5 py-0.5 rounded-full tracking-wide inline-block">${txt(K.ngayPhu)}</span>` : ''}
+            <span class="text-2xs bg-brand-gold text-navy-900 font-extrabold px-2.5 py-0.5 rounded-full uppercase tracking-wider inline-block">${txt(K.ngayThi)}</span>
+            ${K.ngayPhu ? `<span class="text-2xs bg-white/15 text-white font-bold px-2.5 py-0.5 rounded-full tracking-wide inline-block">${txt(K.ngayPhu)}</span>` : ''}
           </div>
         </div>
         <div class="flex flex-col gap-2 items-end shrink-0">
           ${hot ? `
           <button type="button" data-toggle="hotlineDropdown"
-            class="flex items-center gap-1 bg-brand-red hover:brightness-110 text-white text-[11px] font-bold py-2 px-2 rounded-md shadow transition active:scale-95">
+            class="flex items-center gap-1 bg-brand-red hover:brightness-110 text-white text-2xs font-bold py-2 px-2 rounded-md shadow transition active:scale-95">
             ${ic('phone-call', 'w-3 h-3')}<span>Hotline</span>${ic('chevron-down', 'w-3 h-3 opacity-70')}
           </button>` : ''}
           ${traCuu}
@@ -172,7 +172,7 @@
       ${hot ? `
       <div id="hotlineDropdown" class="hidden mt-2.5 bg-white text-slate-800 p-3 rounded-xl shadow-2xl border border-slate-200 fade-in">
         <div class="flex justify-between items-center border-b pb-1.5 mb-2">
-          <span class="text-[11px] font-bold text-navy-800 uppercase flex items-center gap-1">
+          <span class="text-2xs font-bold text-navy-800 uppercase flex items-center gap-1">
             ${ic('phone', 'w-3.5 h-3.5 text-brand-red')} Hotline kỳ thi
           </span>
           <button type="button" data-toggle="hotlineDropdown" class="text-slate-400 text-xs font-bold px-1" aria-label="Đóng">✕</button>
@@ -240,7 +240,7 @@
       ${dds.map(theDiaDiem).join('')}
       ${vanBan ? card('file-text', 'Văn bản của Ban tổ chức', `<ul class="text-xs space-y-1.5">${vanBan}</ul>`) : ''}
       ${btc ? card('users', 'Ban tổ chức', `<ul class="text-xs space-y-1.5">${btc}</ul>`) : ''}
-      <p class="text-[11px] text-slate-400 text-center px-1">Cập nhật ${esc(K.capNhat || '')} · ${esc(K.donViToChuc || '')}</p>`;
+      <p class="text-2xs text-slate-400 text-center px-1">Cập nhật ${esc(K.capNhat || '')} · ${esc(K.donViToChuc || '')}</p>`;
   }
 
   /* ---------- Tab 2: Lịch trình ---------- */
@@ -263,7 +263,7 @@
           </div>
           <div class="bg-${m}-50/60 border border-${m}-200 rounded-xl p-3.5 shadow-sm space-y-3">
             <div class="text-xs font-bold flex items-center gap-1.5 flex-wrap border-b border-${m}-200/60 pb-2">
-              <span class="text-${m}-700 font-extrabold bg-${m}-100 px-2 py-0.5 rounded text-[11px]">${txt(c.gio)}</span>
+              <span class="text-${m}-700 font-extrabold bg-${m}-100 px-2 py-0.5 rounded text-2xs">${txt(c.gio)}</span>
               <span class="text-${m}-400">·</span>
               <span class="uppercase tracking-wide text-slate-900 font-extrabold">${txt(c.ten)}</span>
             </div>
@@ -287,7 +287,7 @@
           <span class="shrink-0 w-7 h-7 rounded-lg bg-navy-800 text-white flex items-center justify-center">${ic('calendar-days', 'w-3.5 h-3.5')}</span>
           <div class="min-w-0">
             <div class="text-xs font-extrabold text-navy-900 uppercase tracking-wide leading-snug">${txt(g.ngay)}</div>
-            ${g.diaDiem ? `<div class="text-[11px] text-slate-500 leading-snug">${txt(g.diaDiem)}</div>` : ''}
+            ${g.diaDiem ? `<div class="text-2xs text-slate-500 leading-snug">${txt(g.diaDiem)}</div>` : ''}
           </div>
         </div>` : ''}
       <div class="relative pl-6 space-y-4 before:absolute before:left-[7px] before:top-3 before:bottom-3 before:w-[2px] before:bg-slate-200">${g.cards.join('')}</div>`).join('');
@@ -326,7 +326,7 @@
           ${p.moTa ? `<p class="text-xs text-slate-600 leading-relaxed">${txt(p.moTa)}</p>` : ''}
           ${(p.items || []).length ? `<ul class="text-xs text-slate-700 space-y-1 list-disc pl-4 leading-relaxed">${list(p.items)}</ul>` : ''}
           ${chipNhom(p.nhom, 'navy')}
-          ${p.ghiChu ? `<p class="text-[11px] text-slate-500 italic leading-relaxed">${txt(p.ghiChu)}</p>` : ''}
+          ${p.ghiChu ? `<p class="text-2xs text-slate-500 italic leading-relaxed">${txt(p.ghiChu)}</p>` : ''}
         </div>`).join('');
       return `
         <div data-sub-panel="dang:d${esc(d.so)}" class="${i ? 'hidden' : 'fade-in'} space-y-4">
@@ -334,7 +334,7 @@
             <span class="w-12 h-12 rounded-xl flex items-center justify-center text-white font-black text-lg shadow shrink-0" style="background:${esc(d.mau || '#111111')}">${esc(d.so)}</span>
             <div class="min-w-0">
               <div class="text-sm font-extrabold text-slate-900">${esc(d.ten)}</div>
-              ${d.phu ? `<div class="text-[11px] text-slate-500">${txt(d.phu)}</div>` : ''}
+              ${d.phu ? `<div class="text-2xs text-slate-500">${txt(d.phu)}</div>` : ''}
             </div>
           </div>
           ${ghiChu(d.ghiChu)}
@@ -362,7 +362,7 @@
       </li>`).join('');
 
     const nguon = N.nguon ? `
-      <p class="text-[11px] text-slate-500 px-1 leading-relaxed">
+      <p class="text-2xs text-slate-500 px-1 leading-relaxed">
         Nguồn: ${esc(N.nguon.ten)}${N.nguon.quyetDinh ? ` — ${esc(N.nguon.quyetDinh)}` : ''}${N.nguon.ngay ? ` (${esc(N.nguon.ngay)})` : ''}${N.nguon.canCu ? `. ${esc(N.nguon.canCu)}` : ''}.
       </p>` : '';
 
@@ -408,7 +408,7 @@
 
     const giayTo = (h.giayTo || []).map((g, i) => `
       <li class="flex items-start gap-2.5 bg-slate-50 rounded-lg px-3 py-2">
-        <span class="shrink-0 w-5 h-5 rounded-full bg-navy-700 text-white text-[11px] font-bold flex items-center justify-center mt-0.5">${i + 1}</span>
+        <span class="shrink-0 w-5 h-5 rounded-full bg-navy-700 text-white text-2xs font-bold flex items-center justify-center mt-0.5">${i + 1}</span>
         <span class="text-slate-800 leading-relaxed">${txt(g)}</span>
       </li>`).join('');
     const phi = (h.lePhi || []).map(p => `
@@ -426,7 +426,7 @@
       + (giayTo ? card('folder-check', 'Hồ sơ dự thi', `<ul class="text-xs space-y-1.5">${giayTo}</ul>${ghiChu(h.ghiChuHoSo)}`) : '')
       + (phi ? card('wallet', 'Lệ phí', `
           <table class="w-full text-xs"><tbody>${phi}</tbody></table>
-          ${h.ghiChuLePhi ? `<p class="text-[11px] text-slate-500 leading-relaxed">${txt(h.ghiChuLePhi)}</p>` : ''}`) : '')
+          ${h.ghiChuLePhi ? `<p class="text-2xs text-slate-500 leading-relaxed">${txt(h.ghiChuLePhi)}</p>` : ''}`) : '')
       + (buoc ? card('list-ordered', 'Các bước đăng ký', `<ol class="text-xs space-y-2">${buoc}</ol>`) : '');
 
     $('#tab-ho-so').innerHTML = body
@@ -441,7 +441,7 @@
       <li class="flex items-start gap-2.5">
         <span class="shrink-0 w-7 h-7 rounded-full bg-navy-50 text-navy-700 flex items-center justify-center">${ic(icon, 'w-3.5 h-3.5')}</span>
         <div class="min-w-0">
-          <div class="text-[11px] text-slate-500">${esc(label)}</div>
+          <div class="text-2xs text-slate-500">${esc(label)}</div>
           ${href
             ? `<a href="${esc(href)}" ${laLink(href) ? 'target="_blank" rel="noopener"' : ''} class="font-bold text-navy-700 break-words">${txt(value)}</a>`
             : `<div class="font-bold text-slate-900 break-words">${txt(value)}</div>`}
@@ -459,7 +459,7 @@
       </ul>`)}
       ${(r.items || []).length ? card('award', r.tieuDe || 'Kết quả & chứng chỉ',
         `<ul class="text-xs text-slate-700 space-y-1.5 list-disc pl-4 leading-relaxed">${list(r.items)}</ul>`) : ''}
-      <p class="text-[11px] text-slate-400 text-center px-1">Cập nhật ${esc(K.capNhat || '')} · ${esc(K.donViToChuc || '')}</p>`;
+      <p class="text-2xs text-slate-400 text-center px-1">Cập nhật ${esc(K.capNhat || '')} · ${esc(K.donViToChuc || '')}</p>`;
   }
 
   /* ---------- Thanh điều hướng & chuyển tab ---------- */
@@ -473,11 +473,15 @@
     ['lien-he',    'phone',                           'Liên hệ'],
   ].filter(t => !tabAn.has(t[0]));
 
+  // Tab đang chọn: nền xanh đậm bo góc, icon và chữ trắng — nhìn là biết đang ở đâu
+  const NAV_ON  = ['bg-navy-800', 'text-white', 'font-bold', 'shadow-md'];
+  const NAV_OFF = ['text-slate-500', 'font-medium'];
+
   function renderNav() {
     $('#nav').innerHTML = TABS.map(([id, icon, label]) => `
       <button type="button" data-tab="${id}" id="nav-${id}"
-        class="nav-btn flex-1 flex flex-col items-center gap-1 text-[9px] leading-tight text-center font-medium text-slate-500 transition-colors">
-        ${ic(icon)}<span>${esc(label)}</span>
+        class="nav-btn flex-1 flex flex-col items-center gap-1 px-1 py-2 rounded-xl text-[11px] leading-tight text-center font-medium text-slate-500 transition-colors">
+        ${ic(icon, 'w-5 h-5')}<span>${esc(label)}</span>
       </button>`).join('');
   }
 
@@ -486,10 +490,9 @@
     $$('.tab-content').forEach(p => p.classList.toggle('active', p.id === `tab-${id}`));
     $$('.nav-btn').forEach(b => {
       const on = b.dataset.tab === id;
-      b.classList.toggle('text-navy-800', on);
-      b.classList.toggle('font-bold', on);
-      b.classList.toggle('text-slate-500', !on);
-      b.classList.toggle('font-medium', !on);
+      b.classList.remove(...NAV_ON, ...NAV_OFF);
+      b.classList.add(...(on ? NAV_ON : NAV_OFF));
+      b.setAttribute('aria-current', on ? 'page' : 'false');
     });
     if (location.hash !== `#${id}`) history.replaceState(null, '', `#${id}`);
     window.scrollTo({ top: 0, behavior: 'smooth' });

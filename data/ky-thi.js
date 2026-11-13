@@ -98,8 +98,13 @@ window.KY_THI = {
       gio: "Từ 15:00", ten: "Phát số báo danh", mau: "amber",
       moTa: "Ban Tổ chức bố trí 05 bàn phát số. Thí sinh kiểm tra thông tin, nhận đúng SBD theo danh sách đăng ký và làm theo hướng dẫn của bộ phận Thư ký.",
       buoc: [
-        { ten: "Bàn 1–4: thí sinh thi 1 đẳng", moTa: "Bàn 1: SBD 1001–1109 · Bàn 2: SBD 1110–1220 · Bàn 3: SBD 1221–1320 · Bàn 4: SBD 1321–1438." },
-        { ten: "Bàn 5: thí sinh thi 2 đẳng và 3 đẳng", moTa: "" }
+        { ten: "Thí sinh thi 1 đẳng — bàn 1 đến 4", moTa: "", items: [
+          "Bàn 1: SBD 1001–1109",
+          "Bàn 2: SBD 1110–1220",
+          "Bàn 3: SBD 1221–1320",
+          "Bàn 4: SBD 1321–1438"
+        ] },
+        { ten: "Thí sinh thi 2 đẳng và 3 đẳng — bàn 5", moTa: "" }
       ]
     },
     {
@@ -110,7 +115,13 @@ window.KY_THI = {
       buoc: [
         { ten: "Điểm danh, kiểm tra võ phục và bảo hộ", moTa: "Ban Trọng tài kiểm tra trước khi vào nội dung thi; chưa đạt phải khắc phục ngay. Đeo số báo danh bên đùi trái." },
         { ten: "Khai mạc kỳ thi", moTa: "Chào cờ, giới thiệu Ban tổ chức; biểu diễn chào mừng của đội tuyển Quyền Taekwondo Hà Nội." },
-        { ten: "Thi theo sàn của nhóm", moTa: "3 đẳng: bàn 1 (tất cả nội dung). 2 đẳng: Kỹ thuật bàn 3 · Đối luyện bàn 4 · Thể lực bàn 5. 1 đẳng SBD 1001–1088: Kỹ thuật bàn 1 · Đối luyện bàn 2 · Thể lực bàn 5. Thứ tự lần lượt qua các sàn theo điều hành của Ban Trọng tài." }
+        { ten: "Thi theo sàn của nhóm", moTa: "",
+          nhom: [
+            { ten: "3 đẳng", san: [["Tất cả nội dung", "Bàn 1"]] },
+            { ten: "2 đẳng", san: [["Kỹ thuật", "Bàn 3"], ["Đối luyện", "Bàn 4"], ["Thể lực", "Bàn 5"]] },
+            { ten: "1 đẳng · SBD 1001–1088", san: [["Kỹ thuật", "Bàn 1"], ["Đối luyện", "Bàn 2"], ["Thể lực", "Bàn 5"]] }
+          ],
+          ghiChu: "Thứ tự lần lượt qua các sàn theo điều hành của Ban Trọng tài." }
       ]
     },
     {
@@ -119,7 +130,12 @@ window.KY_THI = {
       moTa: "Đối tượng: các thí sinh thi 1 đẳng còn lại, SBD từ 1089 đến 1438.",
       buoc: [
         { ten: "Điểm danh, kiểm tra võ phục và bảo hộ", moTa: "Đeo số báo danh bên đùi trái trong suốt quá trình thi." },
-        { ten: "Thi theo sàn của nhóm", moTa: "SBD 1089–1264: Kỹ thuật bàn 1 · Đối luyện bàn 2 · Thể lực bàn 5. SBD 1265–1438: Kỹ thuật bàn 3 · Đối luyện bàn 4 · Thể lực bàn 5. Thứ tự lần lượt qua các sàn theo điều hành của Ban Trọng tài." }
+        { ten: "Thi theo sàn của nhóm", moTa: "",
+          nhom: [
+            { ten: "1 đẳng · SBD 1089–1264", san: [["Kỹ thuật", "Bàn 1"], ["Đối luyện", "Bàn 2"], ["Thể lực", "Bàn 5"]] },
+            { ten: "1 đẳng · SBD 1265–1438", san: [["Kỹ thuật", "Bàn 3"], ["Đối luyện", "Bàn 4"], ["Thể lực", "Bàn 5"]] }
+          ],
+          ghiChu: "Thứ tự lần lượt qua các sàn theo điều hành của Ban Trọng tài." }
       ]
     }
   ],

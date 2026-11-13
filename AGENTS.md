@@ -32,9 +32,13 @@ Chỉ sửa `data/ky-thi.js`. Các trường:
   hiện đang ẩn `"lien-he"` vì chưa có thông tin văn phòng/kết quả.
 - `traCuu.url` — có link thì nút "Tra cứu SBD" tự hiện ở đầu trang.
 - `banToChuc[]` `{vaiTro, ten}`.
-- `lichTrinh[]` `{ngay, diaDiem, gio, ten, mau, moTa, buoc[{ten, moTa}]}` — các thẻ cùng chuỗi `ngay` được gom
+- `lichTrinh[]` `{ngay, diaDiem, gio, ten, mau, moTa, buoc[]}` — các thẻ cùng chuỗi `ngay` được gom
   thành một ngày (tiêu đề ngày + `diaDiem` lấy ở thẻ đầu của ngày đó); `mau` chọn một trong
   `emerald | blue | amber | rose | violet | cyan | orange`, bỏ trống thì tự xoay vòng.
+  Mỗi bước `buoc[]` `{ten, moTa, items[], nhom[], ghiChu}`: **không viết câu dài nhồi nhiều nhóm** — dùng
+  `items[]` (gạch đầu dòng) hoặc `nhom[]` `{ten, san: [[nhan, giaTri], …]}` (mỗi nhóm một dòng, bên phải là
+  các ô "Kỹ thuật · Bàn 1"); `ghiChu` là dòng nghiêng nhỏ ở cuối. Khối `phanThi[]` ở `noi-dung-thi.js` cũng
+  nhận `nhom[]`, `ghiChu` như vậy.
 - `danDo[]` `{icon, tieuDe, items[]}` — `icon` là tên icon Lucide (https://lucide.dev/icons).
 - Tab thứ 4 hiện cả hai khối, khối nào trống thì tự ẩn; `nhanTab.hoSo.{nhan, icon}` đổi tên/icon nút ở thanh đáy:
   - `soBaoDanh.{tieuDe, thoiGian, diaDiem, ban[{ten, doiTuong}], quyDinh[], tieuDeBuoiThi, buoiThi[{ten, doiTuong}],

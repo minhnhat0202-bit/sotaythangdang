@@ -84,6 +84,24 @@
       </table>
     </div>` : '';
 
+  // Nhóm → các ô "nội dung · bàn": nhom = [{ten, san: [[nhan, giaTri], ...]}]
+  const chipNhom = (nhom, m = 'navy') => (nhom || []).length ? `
+    <div class="mt-2 space-y-1.5">${nhom.map(n => `
+      <div class="flex flex-wrap items-center gap-x-2 gap-y-1 bg-white/80 border border-${m}-200/70 rounded-lg px-2.5 py-1.5">
+        <span class="font-bold text-slate-900 text-xs basis-full sm:basis-auto sm:min-w-[8.5rem]">${txt(n.ten)}</span>
+        <span class="flex flex-wrap gap-1.5">${(n.san || []).map(([nhan, gt]) => `
+          <span class="inline-flex items-center gap-1 text-[11px] bg-${m}-100 text-${m}-900 rounded px-1.5 py-0.5 whitespace-nowrap">
+            <span class="opacity-70">${esc(nhan)}</span><span class="font-extrabold">${esc(gt)}</span>
+          </span>`).join('')}</span>
+      </div>`).join('')}
+    </div>` : '';
+
+  // Phần đuôi dùng chung cho một bước / một khối: danh sách, nhóm-ô, ghi chú nhỏ
+  const duoi = (b, m) => `
+    ${(b.items || []).length ? `<ul class="text-xs text-slate-600 mt-1 list-disc pl-4 space-y-0.5 leading-relaxed">${list(b.items)}</ul>` : ''}
+    ${chipNhom(b.nhom, m)}
+    ${b.ghiChu ? `<p class="text-[11px] text-slate-500 mt-1.5 italic leading-relaxed">${txt(b.ghiChu)}</p>` : ''}`;
+
   /* ---------- Pill chọn mục con (dùng chung cho mọi tab) ---------- */
   const PILL_ON  = 'bg-navy-700 text-white border-navy-700 font-bold shadow-md';
   const PILL_OFF = 'bg-white text-slate-700 border-slate-200 hover:bg-slate-50 font-medium shadow-sm';
@@ -232,9 +250,10 @@
       const steps = (c.buoc || []).map((b, j) => `
         <div class="relative flex items-start gap-2.5">
           <div class="absolute -left-8 top-0.5 w-6 h-6 rounded-full bg-${m}-600 text-white font-bold text-xs flex items-center justify-center shrink-0 z-10 shadow-sm">${j + 1}</div>
-          <div class="w-full">
+          <div class="w-full min-w-0">
             <h4 class="font-bold text-slate-900 text-xs">${txt(b.ten)}</h4>
             ${b.moTa ? `<p class="text-xs text-slate-600 mt-0.5 leading-relaxed">${txt(b.moTa)}</p>` : ''}
+            ${duoi(b, m)}
           </div>
         </div>`).join('');
       return `
@@ -306,6 +325,8 @@
           </h4>
           ${p.moTa ? `<p class="text-xs text-slate-600 leading-relaxed">${txt(p.moTa)}</p>` : ''}
           ${(p.items || []).length ? `<ul class="text-xs text-slate-700 space-y-1 list-disc pl-4 leading-relaxed">${list(p.items)}</ul>` : ''}
+          ${chipNhom(p.nhom, 'navy')}
+          ${p.ghiChu ? `<p class="text-[11px] text-slate-500 italic leading-relaxed">${txt(p.ghiChu)}</p>` : ''}
         </div>`).join('');
       return `
         <div data-sub-panel="dang:d${esc(d.so)}" class="${i ? 'hidden' : 'fade-in'} space-y-4">

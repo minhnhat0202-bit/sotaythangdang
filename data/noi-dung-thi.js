@@ -47,17 +47,19 @@ window.NOI_DUNG_THI = {
           "Thắt đai màu đỏ."
         ] },
         { icon: "ticket", ten: "Nhận số báo danh — từ 15h00 Thứ Bảy 14/11", moTa: "", items: [
-          "Bàn số 1: SBD 1001–1109 · Bàn số 2: SBD 1110–1220.",
-          "Bàn số 3: SBD 1221–1320 · Bàn số 4: SBD 1321–1438."
+          "Bàn số 1: SBD 1001–1109",
+          "Bàn số 2: SBD 1110–1220",
+          "Bàn số 3: SBD 1221–1320",
+          "Bàn số 4: SBD 1321–1438"
         ] },
-        { icon: "calendar-check", ten: "Buổi thi — Chủ nhật 15/11", moTa: "", items: [
-          "SBD 1001–1088: buổi sáng, có mặt điểm danh 07h00.",
-          "SBD 1089–1438: buổi chiều, có mặt điểm danh 12h30."
+        { icon: "calendar-check", ten: "Buổi thi — Chủ nhật 15/11", moTa: "", nhom: [
+          { ten: "SBD 1001–1088", san: [["Buổi sáng · có mặt", "07h00"]] },
+          { ten: "SBD 1089–1438", san: [["Buổi chiều · có mặt", "12h30"]] }
         ] },
-        { icon: "layout-grid", ten: "Sàn thi", moTa: "", items: [
-          "SBD 1001–1088 (sáng): Kỹ thuật bàn 1 · Đối luyện bàn 2 · Thể lực bàn 5.",
-          "SBD 1089–1264 (chiều): Kỹ thuật bàn 1 · Đối luyện bàn 2 · Thể lực bàn 5.",
-          "SBD 1265–1438 (chiều): Kỹ thuật bàn 3 · Đối luyện bàn 4 · Thể lực bàn 5."
+        { icon: "layout-grid", ten: "Sàn thi", moTa: "", nhom: [
+          { ten: "SBD 1001–1088 · sáng", san: [["Kỹ thuật", "Bàn 1"], ["Đối luyện", "Bàn 2"], ["Thể lực", "Bàn 5"]] },
+          { ten: "SBD 1089–1264 · chiều", san: [["Kỹ thuật", "Bàn 1"], ["Đối luyện", "Bàn 2"], ["Thể lực", "Bàn 5"]] },
+          { ten: "SBD 1265–1438 · chiều", san: [["Kỹ thuật", "Bàn 3"], ["Đối luyện", "Bàn 4"], ["Thể lực", "Bàn 5"]] }
         ] },
         { icon: "shield", ten: "Trang thiết bị tự chuẩn bị", moTa: "", items: [
           "Bảo hộ chân, bảo hộ tay, găng tay, võ phục (Kukki) theo quy định.",
@@ -82,8 +84,8 @@ window.NOI_DUNG_THI = {
         { icon: "calendar-check", ten: "Buổi thi — Chủ nhật 15/11", moTa: "", items: [
           "Buổi sáng, có mặt điểm danh 07h00."
         ] },
-        { icon: "layout-grid", ten: "Sàn thi", moTa: "", items: [
-          "Kỹ thuật bàn 3 · Đối luyện bàn 4 · Thể lực bàn 5."
+        { icon: "layout-grid", ten: "Sàn thi", moTa: "", nhom: [
+          { ten: "Buổi sáng", san: [["Kỹ thuật", "Bàn 3"], ["Đối luyện", "Bàn 4"], ["Thể lực", "Bàn 5"]] }
         ] },
         { icon: "shield", ten: "Trang thiết bị tự chuẩn bị", moTa: "", items: [
           "Bảo hộ chân, bảo hộ tay, găng tay, võ phục (Kukki) theo quy định.",
@@ -108,8 +110,8 @@ window.NOI_DUNG_THI = {
         { icon: "calendar-check", ten: "Buổi thi — Chủ nhật 15/11", moTa: "", items: [
           "Buổi sáng, có mặt điểm danh 07h00."
         ] },
-        { icon: "layout-grid", ten: "Sàn thi", moTa: "", items: [
-          "Thi tất cả các nội dung tại bàn 1."
+        { icon: "layout-grid", ten: "Sàn thi", moTa: "", nhom: [
+          { ten: "Buổi sáng", san: [["Tất cả nội dung", "Bàn 1"]] }
         ] },
         { icon: "shield", ten: "Trang thiết bị tự chuẩn bị", moTa: "", items: [
           "Bảo hộ chân, bảo hộ tay, găng tay, võ phục (Kukki) theo quy định.",

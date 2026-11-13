@@ -17,6 +17,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import vm from 'node:vm';
 import { fileURLToPath } from 'node:url';
+import { kiem as kiemPhienBan } from './phien-ban.mjs';
 
 // Dùng fileURLToPath vì đường dẫn dự án có thể chứa dấu cách / tiếng Việt.
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -166,6 +167,17 @@ console.log('\n[6] Số điện thoại hotline');
     if (!/^\+?\d{9,11}$/.test(so)) { KO(`hotline "${h.ten}": "${h.sdt}" không phải số điện thoại hợp lệ`); xau++; }
   }
   if (!xau) OK('hotline hợp lệ hoặc đang chờ cập nhật');
+}
+
+/* ---------- 7. Dấu phiên bản chống bộ nhớ đệm ---------- */
+console.log('\n[7] Dấu phiên bản ?v= trong index.html');
+{
+  // Trình duyệt (và GitHub Pages) giữ bản cũ của data/*.js, app.js, style.css khá lâu.
+  // index.html phải trỏ tới tệp kèm ?v=<băm nội dung>; sửa tệp mà quên đóng dấu thì
+  // người xem vẫn thấy nội dung cũ. tools/phien-ban.mjs tính băm và ghi vào index.html.
+  const { dung, v, thieu } = kiemPhienBan();
+  if (dung) OK(`index.html đã đóng dấu phiên bản ${v}`);
+  else KO(`index.html chưa đóng dấu phiên bản ${v} (${thieu.join(', ')}) — chạy: node tools/phien-ban.mjs`);
 }
 
 console.log(`\n${loi ? `✗ ${loi} lỗi` : '✓ không có lỗi'}${canh ? `, ${canh} cảnh báo` : ''}\n`);

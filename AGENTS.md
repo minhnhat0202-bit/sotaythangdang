@@ -4,9 +4,12 @@ Dự án: Sổ tay Kỳ thi thăng đẳng — Liên đoàn Taekwondo Hà Nội.
 
 ## Kiểm tra trước khi commit
 ```bash
+node tools/phien-ban.mjs             # đóng dấu ?v=<băm> vào index.html sau khi sửa data/, assets/
 node tools/kiem-tra.mjs              # phải ra "✓ không có lỗi" (cảnh báo nhãn [CẦN …] được phép)
 node tools/kiem-tra.mjs --phat-hanh  # chỉ trước khi phát hành: không được còn nhãn [CẦN …]
 ```
+Quên `phien-ban.mjs` thì `kiem-tra.mjs` báo lỗi ở mục [7]; không đóng dấu, trình duyệt của phụ huynh
+sẽ còn thấy nội dung cũ trong bộ nhớ đệm dù đã push.
 
 ## Phân việc
 - **omp** (theo công thức, chỉ sửa `data/`): đổi ngày, địa điểm, hotline, lịch ngày thi, dặn dò,

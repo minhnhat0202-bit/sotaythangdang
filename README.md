@@ -18,6 +18,7 @@ data/
   ky-thi.js             Kỳ thi hiện tại: ngày, địa điểm, lịch, hotline, hồ sơ, lệ phí, liên hệ
   noi-dung-thi.js       Quy định thăng đẳng: điều kiện, bài quyền, phần thi của từng đẳng
 tools/
+  phien-ban.mjs         Đóng dấu ?v=<băm nội dung> vào index.html (chống bộ nhớ đệm trình duyệt)
   kiem-tra.mjs          Kiểm tra trước khi commit / phát hành
 docs/
   CAN-BO-SUNG.md        Danh sách thông tin còn thiếu, cần Liên đoàn cung cấp
@@ -51,9 +52,12 @@ chuỗi: trang sẽ hiện nhãn **vàng** để người duyệt không bỏ s�
 ## Kiểm tra
 
 ```bash
+node tools/phien-ban.mjs             # sau khi sửa nội dung: đóng dấu ?v=<băm> để trình duyệt tải bản mới
 node tools/kiem-tra.mjs              # trước khi commit: phải ra "✓ không có lỗi"
 node tools/kiem-tra.mjs --phat-hanh  # trước khi gửi cho thí sinh: không được còn nhãn [CẦN …]
 ```
+
+Xem thử tại máy mà thấy nội dung cũ: bấm **Cmd + Shift + R** (tải lại bỏ qua bộ nhớ đệm).
 
 ## Đưa lên mạng (GitHub Pages)
 

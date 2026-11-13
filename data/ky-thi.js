@@ -5,7 +5,8 @@
    - Thông báo số 14/TB-LĐ TKDHN ngày 12/11/2026 (bản ký) của Liên đoàn Taekwondo
      thành phố Hà Nội "V/v tổ chức lớp tập huấn và Kỳ thi thăng 1, 2, 3 Đẳng
      Taekwondo Quốc gia lần thứ II năm 2026" → docs/thong-bao-14-ky-thi-lan-2-2026.pdf
-   - Sơ đồ phân sàn thi theo nhóm và số báo danh → docs/phan-san-thi.jpg
+   - Sơ đồ phân sàn thi theo nhóm và số báo danh (ảnh gốc ở docs/noi-bo/, nội dung
+     đã chuyển thành bảng soBaoDanh.sanThi bên dưới, không đưa ảnh thô lên trang)
    - Thông báo số 13/TB-LĐTKDHN ngày 27/10/2026 phân công Ban chuyên môn
      (văn bản nội bộ, giữ ở docs/noi-bo/, không đưa lên repo)
 
@@ -29,8 +30,7 @@ window.KY_THI = {
 
   /* ---- Văn bản gốc của Ban tổ chức (link hiện ở tab Tổng quan) ---- */
   vanBan: [
-    { ten: "Thông báo số 14/TB-LĐ TKDHN ngày 12/11/2026 — tổ chức lớp tập huấn và Kỳ thi thăng 1, 2, 3 Đẳng lần thứ II năm 2026 (bản ký, PDF)", url: "docs/thong-bao-14-ky-thi-lan-2-2026.pdf" },
-    { ten: "Sơ đồ phân sàn thi theo nhóm và số báo danh (ảnh)", url: "docs/phan-san-thi.jpg" }
+    { ten: "Thông báo số 14/TB-LĐ TKDHN ngày 12/11/2026 — tổ chức lớp tập huấn và Kỳ thi thăng 1, 2, 3 Đẳng lần thứ II năm 2026 (bản ký, PDF)", url: "docs/thong-bao-14-ky-thi-lan-2-2026.pdf" }
   ],
 
   /* ---- Địa điểm: mỗi phần tử là một thẻ; phần tử đầu là địa điểm chính ----

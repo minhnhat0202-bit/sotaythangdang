@@ -47,11 +47,14 @@ Chỉ sửa `data/ky-thi.js`. Các trường:
 Thông tin chưa có thì ghi `[CẦN CẬP NHẬT]` ngay trong chuỗi, **không bịa**. Thông tin suy đoán
 hoặc lấy từ kỳ trước thì ghi `[CẦN XÁC NHẬN]`. Có thông tin chính thức rồi thì xoá nhãn.
 
-## Sửa quy định thăng đẳng
-Chỉ sửa `data/noi-dung-thi.js` (nguồn: QĐ 152/2025/QĐ-VTF, căn cứ Kukkiwon). Đầu tab: `luuY` (ô vàng, `""` thì ẩn),
-`poomDan` (thẻ "Poom hay Dan?", `null` thì ẩn), `phanMon[]` (các sàn thi). Mỗi phần tử `dang[]`:
-`so` (không trùng), `ten`, `tenNgan`, `phu`, `mau` (mã màu hex), `ghiChu`, `dieuKien[]`,
-`quyen.{batBuoc[], tuChon[]}`, `phanThi[{icon, ten, moTa, items[]}]`.
+## Sửa tab Nội dung thi
+Chỉ sửa `data/noi-dung-thi.js`. **Chỉ ghi những gì văn bản của Ban tổ chức quy định** (võ phục, buổi thi, bàn
+nhận SBD, sàn thi, trang thiết bị); không đưa nội dung bài thi cụ thể (bài quyền, kỹ thuật…) khi văn bản không nêu
+— người dùng đã yêu cầu rõ (13/11/2026).
+Đầu tab: `luuY` (ô vàng, `""` thì ẩn), `poomDan` (`null` thì ẩn), `phanMon[]` (các sàn thi), `nguon` (`null` thì ẩn).
+Mỗi phần tử `dang[]`: `so` (không trùng), `ten`, `tenNgan`, `phu`, `mau` (mã màu hex), `ghiChu`,
+`dieuKien[]` + `tieuDeDieuKien`, `quyen.{batBuoc[], tuChon[]}` (cả hai trống thì ẩn),
+`phanThi[{icon, ten, moTa, items[]}]` + `tieuDePhanThi`. Khối nào trống thì tự ẩn.
 Bỏ một đẳng: xoá cả phần tử. Thêm đẳng: chép một phần tử có sẵn, đổi `so` và nội dung.
 
 ## Thay logo

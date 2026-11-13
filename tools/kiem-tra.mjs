@@ -109,7 +109,9 @@ const win = {};
     const so = new Set();
     for (const [i, d] of (N.dang || []).entries()) {
       can(d.so != null && d.ten, `NOI_DUNG_THI.dang[${i}].so / .ten`);
-      can(d.quyen && Array.isArray(d.quyen.batBuoc) && d.quyen.batBuoc.length, `NOI_DUNG_THI.dang[${i}].quyen.batBuoc`);
+      const coGi = (d.dieuKien || []).length || (d.phanThi || []).length || d.ghiChu
+        || (d.quyen && ((d.quyen.batBuoc || []).length || (d.quyen.tuChon || []).length));
+      can(coGi, `NOI_DUNG_THI.dang[${i}] (${d.ten}) không có nội dung nào để hiện`);
       if (so.has(d.so)) thieu.push(`NOI_DUNG_THI.dang: số đẳng ${d.so} bị trùng`);
       so.add(d.so);
     }

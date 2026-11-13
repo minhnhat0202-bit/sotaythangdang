@@ -317,9 +317,9 @@
             </div>
           </div>
           ${ghiChu(d.ghiChu)}
-          ${(d.dieuKien || []).length ? block('clipboard-check', 'Điều kiện dự thi',
+          ${(d.dieuKien || []).length ? block('clipboard-check', d.tieuDeDieuKien || 'Điều kiện dự thi',
             `<ul class="text-xs text-slate-700 space-y-1.5 list-disc pl-4 leading-relaxed">${list(d.dieuKien)}</ul>`) : ''}
-          ${block('scroll', 'Bài quyền (Poomsae)', `
+          ${((q.batBuoc || []).length || (q.tuChon || []).length) ? block('scroll', 'Bài quyền (Poomsae)', `
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
               <div class="bg-navy-50 rounded-lg p-3">
                 <div class="font-bold text-navy-800 mb-1">Bắt buộc</div>
@@ -329,8 +329,8 @@
                 <div class="font-bold text-slate-700 mb-1">Tự chọn (hội đồng chỉ định)</div>
                 <ul class="space-y-1">${list(q.tuChon)}</ul>
               </div>
-            </div>`)}
-          ${phan ? block('list-checks', 'Các phần thi', `<div class="space-y-2">${phan}</div>`) : ''}
+            </div>`) : ''}
+          ${phan ? block('list-checks', d.tieuDePhanThi || 'Các phần thi', `<div class="space-y-2">${phan}</div>`) : ''}
         </div>`;
     }).join('');
 

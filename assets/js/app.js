@@ -67,6 +67,23 @@
       </tbody>
     </table>` : '';
 
+  // Bảng nhiều cột {cot: [...], dong: [[...], ...]} — cột đầu in đậm, cuộn ngang nếu chật
+  const bangNhieuCot = t => t && (t.cot || []).length && (t.dong || []).length ? `
+    <div class="overflow-x-auto -mx-1 px-1">
+      <table class="w-full text-xs">
+        <thead>
+          <tr class="text-left text-[11px] uppercase tracking-wide text-slate-500 border-b border-slate-200">
+            ${t.cot.map((c, i) => `<th class="py-1.5 ${i ? 'px-2' : 'pr-2'} font-bold whitespace-nowrap">${esc(c)}</th>`).join('')}
+          </tr>
+        </thead>
+        <tbody>${t.dong.map(r => `
+          <tr class="border-b border-slate-100 last:border-0">
+            ${(r || []).map((v, i) => `<td class="py-2 ${i ? 'px-2 text-slate-800' : 'pr-2 font-bold text-navy-800'} leading-snug align-top">${txt(v)}</td>`).join('')}
+          </tr>`).join('')}
+        </tbody>
+      </table>
+    </div>` : '';
+
   /* ---------- Pill chọn mục con (dùng chung cho mọi tab) ---------- */
   const PILL_ON  = 'bg-navy-700 text-white border-navy-700 font-bold shadow-md';
   const PILL_OFF = 'bg-white text-slate-700 border-slate-200 hover:bg-slate-50 font-medium shadow-sm';
@@ -345,7 +362,10 @@
     const h = K.hoSo || {};
     const s = K.soBaoDanh || {};
 
-    const sbd = ((s.ban || []).length || (s.buoiThi || []).length) ? `
+    const sanThi = s.sanThi && (s.sanThi.dong || []).length
+      ? card('layout-grid', s.sanThi.tieuDe || 'Sàn thi theo nhóm', `${bangNhieuCot(s.sanThi)}${ghiChu(s.sanThi.ghiChu)}`, 'violet')
+      : '';
+    const sbd = ((s.ban || []).length || (s.buoiThi || []).length || sanThi) ? `
       ${card('ticket', s.tieuDe || 'Số báo danh', `
         <dl class="text-xs grid grid-cols-[auto_1fr] gap-x-3 gap-y-2">
           ${dt('Thời gian', s.thoiGian)}
@@ -354,7 +374,8 @@
         ${bang(s.ban, 'Bàn phát số', 'Đối tượng & số báo danh')}
         ${(s.quyDinh || []).length ? `<ul class="text-xs text-slate-700 space-y-1.5 list-disc pl-4 leading-relaxed">${list(s.quyDinh)}</ul>` : ''}`)}
       ${(s.buoiThi || []).length ? card('calendar-check', s.tieuDeBuoiThi || 'Buổi thi theo số báo danh',
-        bang(s.buoiThi, 'Buổi thi', 'Đối tượng'), 'rose') : ''}` : '';
+        bang(s.buoiThi, 'Buổi thi', 'Đối tượng'), 'rose') : ''}
+      ${sanThi}` : '';
 
     const han = (h.hanNop || h.noiNop || h.hinhThuc) ? card('calendar-clock', 'Thời hạn & nơi nộp', `
       <dl class="text-xs grid grid-cols-[auto_1fr] gap-x-3 gap-y-2">

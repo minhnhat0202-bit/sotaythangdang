@@ -17,3 +17,6 @@ test-*.html
 # Ảnh gốc chưa tối ưu — giữ ở máy làm bản gốc, không đưa lên repo
 /anh-goc/
 *.zip
+
+# Văn bản nội bộ của Liên đoàn (phân công nhiệm vụ, bản scan gốc…) — chỉ giữ ở máy
+/docs/noi-bo/

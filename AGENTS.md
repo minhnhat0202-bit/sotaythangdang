@@ -17,7 +17,9 @@ node tools/kiem-tra.mjs --phat-hanh  # chỉ trước khi phát hành: không đ
 Chỉ sửa `data/ky-thi.js`. Các trường:
 - `capNhat`, `dot`, `ngayThi`, `ngayPhu` — chữ hiện nguyên văn (ngày ghi dạng "Chủ nhật, 15/11/2026");
   `ngayPhu` là ngày phụ (tập huấn, phát SBD…), hiện thành huy hiệu thứ hai ở đầu trang, để `""` thì ẩn.
-- `vanBan[]` `{ten, url}` — văn bản gốc của Ban tổ chức (PDF đặt trong `docs/`), hiện ở tab Tổng quan.
+- `vanBan[]` `{ten, url}` — văn bản gốc của Ban tổ chức (PDF/ảnh đặt trong `docs/`), hiện ở tab Tổng quan.
+  Ảnh scan nhiều trang → ghép thành một PDF (PIL: `save(..., save_all=True, append_images=[...])`, thu về 1240 px
+  ngang). Văn bản **nội bộ** (phân công nhiệm vụ, bản scan gốc) để ở `docs/noi-bo/` — thư mục này đã gitignore.
 - `diaDiem[]` — mỗi phần tử một thẻ `{nhan, ten, diaChi, ghiChu, mapUrl, mapEmbed, diChuyen[]}`; phần tử đầu
   là địa điểm chính (thẻ màu xanh đậm). `mapUrl` là link Google Maps (nút Chỉ đường), có thể dùng dạng
   `https://www.google.com/maps/search/?api=1&query=<địa chỉ>`; `mapEmbed` là link nhúng
@@ -30,8 +32,9 @@ Chỉ sửa `data/ky-thi.js`. Các trường:
   `emerald | blue | amber | rose | violet | cyan | orange`, bỏ trống thì tự xoay vòng.
 - `danDo[]` `{icon, tieuDe, items[]}` — `icon` là tên icon Lucide (https://lucide.dev/icons).
 - Tab thứ 4 hiện cả hai khối, khối nào trống thì tự ẩn; `nhanTab.hoSo.{nhan, icon}` đổi tên/icon nút ở thanh đáy:
-  - `soBaoDanh.{tieuDe, thoiGian, diaDiem, ban[{ten, doiTuong}], quyDinh[], tieuDeBuoiThi, buoiThi[{ten, doiTuong}]}`
-    — dùng sát ngày thi (bàn phát số, buổi thi theo SBD).
+  - `soBaoDanh.{tieuDe, thoiGian, diaDiem, ban[{ten, doiTuong}], quyDinh[], tieuDeBuoiThi, buoiThi[{ten, doiTuong}],
+    sanThi{tieuDe, cot[], dong[][], ghiChu}}` — dùng sát ngày thi (bàn phát số, buổi thi theo SBD, sàn thi theo nhóm;
+    `sanThi` là bảng nhiều cột: `cot` tiêu đề cột, mỗi phần tử `dong` là một hàng, cột đầu in đậm).
   - `hoSo.{hanNop, noiNop, hinhThuc, giayTo[], ghiChuHoSo, lePhi[{muc, phi}], ghiChuLePhi, cachNop[]}`
     — dùng trong giai đoạn đăng ký.
 - `ketQua.{tieuDe, items[]}`, `lienHe.{tieuDe, diaChi, dienThoai, email, facebook, website, gioLamViec}`.

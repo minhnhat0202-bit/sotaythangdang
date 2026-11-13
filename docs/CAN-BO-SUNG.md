@@ -25,7 +25,8 @@ Chạy `node tools/kiem-tra.mjs` để xem còn bao nhiêu nhãn, ở dòng nào
       (đã bỏ nút và tab Liên hệ ngày 13/11 vì chưa có số; muốn hiện lại tab thì bỏ `"lien-he"` khỏi `tabAn`)
 - [ ] Nhóm nào tập huấn buổi sáng, nhóm nào buổi chiều ngày 14/11
 - [ ] Giờ khai mạc và giờ bắt đầu thi từng sàn (hiện chỉ có giờ có mặt 07h00 / 12h30)
-- [ ] Kiểm tra lại vị trí hai địa điểm trên Google Maps (link tạo từ địa chỉ, chưa ghim toạ độ)
+- [x] Địa điểm tập huấn đã ghim đúng toạ độ (link Google Maps do Liên đoàn cung cấp: Trung tâm Huấn luyện VĐV cấp cao Hà Nội)
+- [ ] Kiểm tra lại vị trí Nhà thi đấu Tương Mai trên Google Maps (link tạo từ địa chỉ, chưa ghim toạ độ)
 - [ ] Thời điểm và kênh công bố kết quả; thời gian nhận chứng chỉ
 - [ ] Văn phòng: địa chỉ, điện thoại, email, fanpage, giờ làm việc
 - [ ] Link tra cứu SBD (nếu Liên đoàn công bố danh sách online) → `traCuu.url`

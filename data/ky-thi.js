@@ -49,9 +49,9 @@ window.KY_THI = {
       nhan: "Tập huấn & phát SBD · Thứ Bảy 14/11",
       ten: "Nhà tập Bộ môn Taekwondo — Trung tâm Huấn luyện và Thi đấu Thể thao Hà Nội",
       diaChi: "Số 38 đường Lê Đức Thọ, phường Từ Liêm, TP. Hà Nội",
-      ghiChu: "",
-      mapUrl: "https://www.google.com/maps/search/?api=1&query=Trung+tâm+Huấn+luyện+và+Thi+đấu+Thể+thao+Hà+Nội,+38+Lê+Đức+Thọ,+Hà+Nội",
-      mapEmbed: "https://maps.google.com/maps?q=38+Lê+Đức+Thọ,+Từ+Liêm,+Hà+Nội&z=16&output=embed",
+      ghiChu: "Trên Google Maps tìm \"Trung Tâm Huấn Luyện VĐV Cấp Cao Hà Nội\" (toạ độ 21.04388, 105.73418).",
+      mapUrl: "https://maps.app.goo.gl/HuBMPpaFqKrGW4Cs5",
+      mapEmbed: "https://maps.google.com/maps?q=21.0438817,105.7341757&z=17&output=embed",
       diChuyen: []
     }
   ],
@@ -86,7 +86,7 @@ window.KY_THI = {
   lichTrinh: [
     {
       ngay: "Thứ Bảy, 14/11/2026 — Tập huấn & phát số báo danh",
-      diaDiem: "Nhà tập Bộ môn Taekwondo, số 38 Lê Đức Thọ, phường Từ Liêm",
+      diaDiem: "Nhà tập Bộ môn Taekwondo, 38 Lê Đức Thọ (Trung tâm Huấn luyện VĐV cấp cao Hà Nội)",
       gio: "08:00", ten: "Tập huấn buổi sáng", mau: "emerald",
       moTa: "Thí sinh có mặt lúc 08h00. [CẦN XÁC NHẬN] Nhóm nào tập huấn buổi sáng, nhóm nào buổi chiều.",
       buoc: [
@@ -180,7 +180,7 @@ window.KY_THI = {
   soBaoDanh: {
     tieuDe: "Phát số báo danh",
     thoiGian: "Từ 15h00, Thứ Bảy 14/11/2026",
-    diaDiem: "Nhà tập Bộ môn Taekwondo — số 38 Lê Đức Thọ, phường Từ Liêm",
+    diaDiem: "Nhà tập Bộ môn Taekwondo — 38 Lê Đức Thọ (Trung tâm Huấn luyện VĐV cấp cao Hà Nội)",
     ban: [
       { ten: "Bàn số 1", doiTuong: "Thí sinh thi 1 đẳng — SBD 1001 đến 1109" },
       { ten: "Bàn số 2", doiTuong: "Thí sinh thi 1 đẳng — SBD 1110 đến 1220" },

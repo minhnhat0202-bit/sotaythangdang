@@ -30,7 +30,7 @@ Chạy `node tools/kiem-tra.mjs` để xem còn bao nhiêu nhãn, ở dòng nào
 - [ ] Thời điểm và kênh công bố kết quả; thời gian nhận chứng chỉ
 - [ ] Văn phòng: địa chỉ, điện thoại, email, fanpage, giờ làm việc
 - [ ] Link tra cứu SBD (nếu Liên đoàn công bố danh sách online) → `traCuu.url`
-- [ ] Danh sách Ban tổ chức lấy từ văn bản nội bộ: Liên đoàn đồng ý công khai tên hay chỉ ghi vai trò?
+- [x] Ban tổ chức: đã bỏ thẻ này (13/11) — phân công Ban chuyên môn là văn bản nội bộ, không công khai tên
 
 ## Quy định chuyên môn (`data/noi-dung-thi.js`)
 - [ ] Nội dung cụ thể sàn Thể lực; số thế một bước đối luyện; hình thức đối luyện có bảo hộ

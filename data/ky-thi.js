@@ -66,18 +66,8 @@ window.KY_THI = {
   /* ---- Tra cứu số báo danh: có link (Google Sheet, form…) thì điền, nút tự hiện ---- */
   traCuu: { nhan: "Tra cứu SBD", url: "" },
 
-  /* ---- Ban tổ chức (theo Thông báo số 13 phân công Ban chuyên môn và bản ký Thông báo số 14) ---- */
-  banToChuc: [
-    { vaiTro: "Đơn vị tổ chức", ten: "Liên đoàn Taekwondo thành phố Hà Nội" },
-    { vaiTro: "Phụ trách toàn bộ công tác tổ chức, chuyên môn; ký Thông báo số 14", ten: "Thầy Hồ Anh Tuấn — Phó Chủ tịch, Tổng Thư ký" },
-    { vaiTro: "Chương trình tập huấn, Ban giảng huấn", ten: "Thầy Nguyễn Sơn, thầy Nguyễn Văn Cường, thầy Trần Văn" },
-    { vaiTro: "Danh sách thí sinh, hồ sơ, số báo danh", ten: "Thầy Nguyễn Văn Cường" },
-    { vaiTro: "Giám sát kỳ thi, phần mềm chấm thi", ten: "Cô Đỗ Thị Bích Hạnh" },
-    { vaiTro: "Lực lượng trọng tài (10 trọng tài)", ten: "Thầy Vũ Ngọc Thịnh" },
-    { vaiTro: "Trang thiết bị chuyên môn (giáp, mũ thi đấu)", ten: "Thầy Vũ Anh Tuấn" },
-    { vaiTro: "Địa điểm, cơ sở vật chất, y tế, an ninh, chỗ để xe", ten: "Thầy Hoàng Đình Tuấn" },
-    { vaiTro: "Văn bản, hành chính, hậu cần", ten: "Cô Trần Bích Đào" }
-  ],
+  /* ---- Ban tổ chức: để [] thì thẻ tự ẩn (phân công Ban chuyên môn là văn bản nội bộ, không công khai) ---- */
+  banToChuc: [],
 
   /* ---- Khung thời gian ----
      ngay: các thẻ cùng `ngay` được gom thành một ngày (địa điểm lấy ở thẻ đầu của ngày đó)

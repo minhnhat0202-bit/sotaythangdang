@@ -57,11 +57,11 @@ window.KY_THI = {
   ],
   diChuyen: [],
 
-  /* ---- Hotline (nút đỏ ở đầu trang) ---- */
-  hotline: [
-    { ten: "Bộ phận Thư ký kỳ thi", sdt: "[CẦN CẬP NHẬT]" },
-    { ten: "Văn phòng Liên đoàn", sdt: "[CẦN CẬP NHẬT]" }
-  ],
+  /* ---- Hotline (nút đỏ ở đầu trang): để [] thì nút tự ẩn; có số thì thêm {ten, sdt} ---- */
+  hotline: [],
+
+  /* ---- Tab muốn ẩn khỏi thanh đáy: "tong-quan" | "lich-trinh" | "noi-dung" | "ho-so" | "lien-he" ---- */
+  tabAn: ["lien-he"],
 
   /* ---- Tra cứu số báo danh: có link (Google Sheet, form…) thì điền, nút tự hiện ---- */
   traCuu: { nhan: "Tra cứu SBD", url: "" },
@@ -220,23 +220,10 @@ window.KY_THI = {
     cachNop: []
   },
 
-  /* ---- Kết quả & chứng chỉ ---- */
-  ketQua: {
-    tieuDe: "Kết quả & chứng chỉ",
-    items: [
-      "Kết quả được Ban chuyên môn tổng hợp từ hệ thống chấm thi và báo cáo Liên đoàn Taekwondo Việt Nam theo quy định. [CẦN CẬP NHẬT] Thời gian và kênh công bố.",
-      "Thí sinh đạt được cấp chứng chỉ đẳng theo quy định; thời gian nhận chứng chỉ theo thông báo của Liên đoàn. [CẦN XÁC NHẬN]"
-    ]
-  },
-
-  /* ---- Liên hệ ---- */
+  /* ---- Kết quả & chứng chỉ và Liên hệ: hiện ở tab "lien-he" (đang ẩn qua tabAn). Có thông tin thì điền và bỏ "lien-he" khỏi tabAn ---- */
+  ketQua: { tieuDe: "Kết quả & chứng chỉ", items: [] },
   lienHe: {
     tieuDe: "Văn phòng Liên đoàn Taekwondo thành phố Hà Nội",
-    diaChi: "[CẦN CẬP NHẬT]",
-    dienThoai: "[CẦN CẬP NHẬT]",
-    email: "[CẦN CẬP NHẬT]",
-    facebook: "[CẦN CẬP NHẬT] link fanpage",
-    website: "",
-    gioLamViec: ""
+    diaChi: "", dienThoai: "", email: "", facebook: "", website: "", gioLamViec: ""
   }
 };

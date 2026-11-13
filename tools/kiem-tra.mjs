@@ -92,7 +92,7 @@ const win = {};
     const dds = (Array.isArray(K.diaDiem) ? K.diaDiem : [K.diaDiem]).filter(Boolean);
     can(dds.length, 'KY_THI.diaDiem (ít nhất 1)');
     dds.forEach((d, i) => can(d.ten && d.diaChi, `KY_THI.diaDiem[${i}].ten / .diaChi`));
-    can(Array.isArray(K.hotline) && K.hotline.length, 'KY_THI.hotline (ít nhất 1)');
+    can(Array.isArray(K.hotline), 'KY_THI.hotline phải là mảng ([] thì nút Hotline ẩn)');
     can(Array.isArray(K.lichTrinh) && K.lichTrinh.length, 'KY_THI.lichTrinh (ít nhất 1)');
     // Tab 4 phải có gì đó: hồ sơ (giai đoạn đăng ký) hoặc số báo danh (sát ngày thi)
     const coHoSo = K.hoSo && Array.isArray(K.hoSo.giayTo) && K.hoSo.giayTo.length;

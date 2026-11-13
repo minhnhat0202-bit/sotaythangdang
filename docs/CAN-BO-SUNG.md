@@ -21,7 +21,8 @@ Chạy `node tools/kiem-tra.mjs` để xem còn bao nhiêu nhãn, ở dòng nào
 - [ ] Ảnh đại diện khi chia sẻ link (1200×630) → thêm thẻ `og:image` trong `index.html`
 
 ## Kỳ thi (`data/ky-thi.js`)
-- [ ] Số điện thoại bộ phận Thư ký kỳ thi và Văn phòng Liên đoàn (hotline) — **quan trọng nhất**
+- [ ] Số điện thoại bộ phận Thư ký kỳ thi và Văn phòng Liên đoàn — có số thì điền `hotline[]`, nút Hotline tự hiện lại
+      (đã bỏ nút và tab Liên hệ ngày 13/11 vì chưa có số; muốn hiện lại tab thì bỏ `"lien-he"` khỏi `tabAn`)
 - [ ] Nhóm nào tập huấn buổi sáng, nhóm nào buổi chiều ngày 14/11
 - [ ] Giờ khai mạc và giờ bắt đầu thi từng sàn (hiện chỉ có giờ có mặt 07h00 / 12h30)
 - [ ] Kiểm tra lại vị trí hai địa điểm trên Google Maps (link tạo từ địa chỉ, chưa ghim toạ độ)

@@ -221,7 +221,8 @@
         ${ghiChu(K.ghiChuChung)}`)}
       ${dds.map(theDiaDiem).join('')}
       ${vanBan ? card('file-text', 'Văn bản của Ban tổ chức', `<ul class="text-xs space-y-1.5">${vanBan}</ul>`) : ''}
-      ${btc ? card('users', 'Ban tổ chức', `<ul class="text-xs space-y-1.5">${btc}</ul>`) : ''}`;
+      ${btc ? card('users', 'Ban tổ chức', `<ul class="text-xs space-y-1.5">${btc}</ul>`) : ''}
+      <p class="text-[11px] text-slate-400 text-center px-1">Cập nhật ${esc(K.capNhat || '')} · ${esc(K.donViToChuc || '')}</p>`;
   }
 
   /* ---------- Tab 2: Lịch trình ---------- */
@@ -442,13 +443,14 @@
 
   /* ---------- Thanh điều hướng & chuyển tab ---------- */
   const nhanHoSo = (K.nhanTab && K.nhanTab.hoSo) || {};
+  const tabAn = new Set(K.tabAn || []);          // tab liệt kê trong KY_THI.tabAn thì không hiện
   const TABS = [
     ['tong-quan',  'info',                            'Tổng quan'],
     ['lich-trinh', 'clock',                           'Lịch trình'],
     ['noi-dung',   'book-open-check',                 'Nội dung thi'],
     ['ho-so',      nhanHoSo.icon || 'folder-check',   nhanHoSo.nhan || 'Hồ sơ & lệ phí'],
     ['lien-he',    'phone',                           'Liên hệ'],
-  ];
+  ].filter(t => !tabAn.has(t[0]));
 
   function renderNav() {
     $('#nav').innerHTML = TABS.map(([id, icon, label]) => `

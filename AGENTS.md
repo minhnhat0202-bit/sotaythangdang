@@ -24,7 +24,9 @@ Chỉ sửa `data/ky-thi.js`. Các trường:
   là địa điểm chính (thẻ màu xanh đậm). `mapUrl` là link Google Maps (nút Chỉ đường), có thể dùng dạng
   `https://www.google.com/maps/search/?api=1&query=<địa chỉ>`; `mapEmbed` là link nhúng
   (`https://maps.google.com/maps?q=<địa chỉ>&z=16&output=embed`); để `""` thì phần đó tự ẩn.
-- `hotline[]` `{ten, sdt}` — số điện thoại 9–11 chữ số, được có dấu cách/chấm.
+- `hotline[]` `{ten, sdt}` — số điện thoại 9–11 chữ số, được có dấu cách/chấm; để `[]` thì nút Hotline ở đầu trang ẩn.
+- `tabAn[]` — tên tab muốn ẩn khỏi thanh đáy (`"tong-quan" | "lich-trinh" | "noi-dung" | "ho-so" | "lien-he"`);
+  hiện đang ẩn `"lien-he"` vì chưa có thông tin văn phòng/kết quả.
 - `traCuu.url` — có link thì nút "Tra cứu SBD" tự hiện ở đầu trang.
 - `banToChuc[]` `{vaiTro, ten}`.
 - `lichTrinh[]` `{ngay, diaDiem, gio, ten, mau, moTa, buoc[{ten, moTa}]}` — các thẻ cùng chuỗi `ngay` được gom
@@ -43,7 +45,8 @@ Thông tin chưa có thì ghi `[CẦN CẬP NHẬT]` ngay trong chuỗi, **khôn
 hoặc lấy từ kỳ trước thì ghi `[CẦN XÁC NHẬN]`. Có thông tin chính thức rồi thì xoá nhãn.
 
 ## Sửa quy định thăng đẳng
-Chỉ sửa `data/noi-dung-thi.js` (nguồn: QĐ 152/2025/QĐ-VTF, căn cứ Kukkiwon). Mỗi phần tử `dang[]`:
+Chỉ sửa `data/noi-dung-thi.js` (nguồn: QĐ 152/2025/QĐ-VTF, căn cứ Kukkiwon). Đầu tab: `luuY` (ô vàng, `""` thì ẩn),
+`poomDan` (thẻ "Poom hay Dan?", `null` thì ẩn), `phanMon[]` (các sàn thi). Mỗi phần tử `dang[]`:
 `so` (không trùng), `ten`, `tenNgan`, `phu`, `mau` (mã màu hex), `ghiChu`, `dieuKien[]`,
 `quyen.{batBuoc[], tuChon[]}`, `phanThi[{icon, ten, moTa, items[]}]`.
 Bỏ một đẳng: xoá cả phần tử. Thêm đẳng: chép một phần tử có sẵn, đổi `so` và nội dung.

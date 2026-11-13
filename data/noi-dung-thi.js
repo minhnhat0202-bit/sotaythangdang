@@ -26,16 +26,11 @@ window.NOI_DUNG_THI = {
     canCu: "Căn cứ Quy định thi thăng cấp, đẳng hiện hành của Kukkiwon"
   },
 
-  luuY: "[CẦN XÁC NHẬN] Kỳ thi lần II/2026 thi 1, 2, 3 đẳng qua ba sàn Kỹ thuật – Đối luyện – Thể lực. Nội dung chi tiết dưới đây dựng theo quy định VTF/Kukkiwon và sẽ được Ban giảng huấn phổ biến tại buổi tập huấn 14/11; Ban tổ chức đối chiếu rồi bỏ nhãn này.",
+  /* Ô ghi chú vàng đầu tab: để "" thì ẩn */
+  luuY: "",
 
-  poomDan: {
-    tieuDe: "Poom hay Dan?",
-    items: [
-      "Thí sinh dưới 15 tuổi dự thi và được cấp đẳng thiếu niên (Poom).",
-      "Thí sinh từ 15 tuổi trở lên dự thi và được cấp đẳng (Dan).",
-      "Người đang giữ 1–3 Poom khi đủ 15 tuổi được chuyển đổi sang Dan tương ứng theo quy định Kukkiwon; thủ tục chuyển đổi thực hiện qua Liên đoàn. [CẦN XÁC NHẬN]"
-    ]
-  },
+  /* Thẻ "Poom hay Dan?": để null thì ẩn; muốn hiện lại thì đặt { tieuDe, items: [...] } */
+  poomDan: null,
 
   /* Ba sàn thi, hiện ở đầu tab "Nội dung thi" */
   phanMon: [
